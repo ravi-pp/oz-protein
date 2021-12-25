@@ -382,9 +382,9 @@ $(".next").click(function(){
 
 current_fs = $(this).parent();
 next_fs = $(this).parent().next();
-
+console.log(next_fs)
 //Add Class Active
-$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+// $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
 //show the next fieldset
 next_fs.show();
@@ -409,9 +409,9 @@ $(".previous").click(function(){
 
 current_fs = $(this).parent();
 previous_fs = $(this).parent().prev();
-
+console.log(current_fs)
 //Remove class active
-$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+// $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
 
 //show the previous fieldset
 previous_fs.show();
@@ -435,12 +435,21 @@ setProgressBar(--current);
 });
 
 function setProgressBar(curStep){
-    // alert(curStep)
+     console.log(curStep)
 var percent = parseFloat(100 / steps) * curStep;
 percent = percent.toFixed();
 $(".progress-bar")
 .css("width",percent+"%")
 $('.current-count').text(curStep);
+if(curStep<=6){
+    $("#progressbar li").eq(0).addClass("active");
+    $("#progressbar li").eq(1).removeClass("active");
+    $("#progressbar li").eq(2).removeClass("active");
+}else if(curStep>=7 && curStep<8){
+    $("#progressbar li").eq(1).addClass("active");
+}else if(curStep>=9){
+    $("#progressbar li").eq(2).addClass("active");
+}
 }
 
 $(".submit").click(function(){
