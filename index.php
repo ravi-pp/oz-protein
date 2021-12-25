@@ -6,240 +6,24 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>OZ-Protein Quiz</title>
     <link href='<?php constant('quizUrl'); ?>assets/css/bootstrap.min.css' rel='stylesheet'>
-    <link href='<?php constant('quizUrl'); ?>assets/css/font-awesome.css' rel='stylesheet'>
+    <link href='<?php constant('quizUrl'); ?>assets/css/custom.css' rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
     <script type='text/javascript' src='<?php constant('quizUrl'); ?>assets/js/jquery.min.js'></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0
-        }
-
-        html {
-            height: 100%
-        }
-
-        p {
-            color: grey
-        }
-
-        #heading {
-            text-transform: uppercase;
-            color: #673AB7;
-            font-weight: normal
-        }
-
-        #msform {
-            text-align: center;
-            position: relative;
-            margin-top: 20px
-        }
-
-        #msform fieldset {
-            background: white;
-            border: 0 none;
-            border-radius: 0.5rem;
-            box-sizing: border-box;
-            width: 100%;
-            margin: 0;
-            padding-bottom: 20px;
-            position: relative
-        }
-
-        .form-card {
-            text-align: left
-        }
-
-        #msform fieldset:not(:first-of-type) {
-            display: none
-        }
-
-        #msform input,
-        #msform textarea {
-            padding: 8px 15px 8px 15px;
-            border: 1px solid #ccc;
-            border-radius: 0px;
-            margin-bottom: 25px;
-            margin-top: 2px;
-            width: 100%;
-            box-sizing: border-box;
-            font-family: montserrat;
-            color: #2C3E50;
-            background-color: #ECEFF1;
-            font-size: 16px;
-            letter-spacing: 1px
-        }
-
-        #msform input:focus,
-        #msform textarea:focus {
-            -moz-box-shadow: none !important;
-            -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-            border: 1px solid #673AB7;
-            outline-width: 0
-        }
-
-        #msform .action-button {
-            width: 100px;
-            background: #673AB7;
-            font-weight: bold;
-            color: white;
-            border: 0 none;
-            border-radius: 0px;
-            cursor: pointer;
-            padding: 10px 5px;
-            margin: 10px 0px 10px 5px;
-            float: right
-        }
-
-        #msform .action-button:hover,
-        #msform .action-button:focus {
-            background-color: #311B92
-        }
-
-        #msform .action-button-previous {
-            width: 100px;
-            background: #616161;
-            font-weight: bold;
-            color: white;
-            border: 0 none;
-            border-radius: 0px;
-            cursor: pointer;
-            padding: 10px 5px;
-            margin: 10px 5px 10px 0px;
-            float: right
-        }
-
-        #msform .action-button-previous:hover,
-        #msform .action-button-previous:focus {
-            background-color: #000000
-        }
-
-        .card {
-            z-index: 0;
-            border: none;
-            position: relative
-        }
-
-        .fs-title {
-            font-size: 25px;
-            color: #673AB7;
-            margin-bottom: 15px;
-            font-weight: normal;
-            text-align: left
-        }
-
-        .purple-text {
-            color: #673AB7;
-            font-weight: normal
-        }
-
-        .steps {
-            font-size: 25px;
-            color: gray;
-            margin-bottom: 10px;
-            font-weight: normal;
-            text-align: right
-        }
-
-        .fieldlabels {
-            color: gray;
-            text-align: left
-        }
-
-        #progressbar {
-            margin-bottom: 30px;
-            overflow: hidden;
-            color: lightgrey
-        }
-
-        #progressbar .active {
-            color: #673AB7
-        }
-
-        #progressbar li {
-            list-style-type: none;
-            font-size: 15px;
-            width: 25%;
-            float: left;
-            position: relative;
-            font-weight: 400
-        }
-
-        #progressbar #account:before {
-            font-family: FontAwesome;
-            content: "\f13e"
-        }
-
-        #progressbar #personal:before {
-            font-family: FontAwesome;
-            content: "\f007"
-        }
-
-        #progressbar #payment:before {
-            font-family: FontAwesome;
-            content: "\f030"
-        }
-
-        #progressbar #confirm:before {
-            font-family: FontAwesome;
-            content: "\f00c"
-        }
-
-        #progressbar li:before {
-            width: 50px;
-            height: 50px;
-            line-height: 45px;
-            display: block;
-            font-size: 20px;
-            color: #ffffff;
-            background: lightgray;
-            border-radius: 50%;
-            margin: 0 auto 10px auto;
-            padding: 2px
-        }
-
-        #progressbar li:after {
-            content: '';
-            width: 100%;
-            height: 2px;
-            background: lightgray;
-            position: absolute;
-            left: 0;
-            top: 25px;
-            z-index: -1
-        }
-
-        #progressbar li.active:before,
-        #progressbar li.active:after {
-            background: #673AB7
-        }
-
-        .progress {
-            height: 20px
-        }
-
-        .progress-bar {
-            background-color: #673AB7
-        }
-
-        .fit-image {
-            width: 100%;
-            object-fit: cover
-        }
-    </style>
 </head>
+<style>
 
-<body oncontextmenu='return false' class='snippet-body'>
+</style>
+<body oncontextmenu='return true' class='snippet-body'>
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                    <h2 id="heading">Sign Up Your User Account</h2>
-                    <p>Fill all form field to go to next step</p>
+                    <h2 id="heading">OZ Protein Quiz</h2>
+                    <p>Best product waiting for you!</p>
                     <form id="msform">
                         <!-- progressbar -->
                         <ul id="progressbar">
-                            <li class="active" id="account"><strong>Account</strong></li>
+                            <li class="active" id="account"><strong>Basic</strong></li>
                             <li id="personal"><strong>Personal</strong></li>
                             <li id="payment"><strong>Image</strong></li>
                             <li id="confirm"><strong>Finish</strong></li>
@@ -247,24 +31,278 @@
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                                 aria-valuemin="0" aria-valuemax="100"></div>
-                        </div> <br> <!-- fieldsets -->
+                        </div> <br> 
+
+                        <!-- 1 fieldsets -->
                         <fieldset>
-                            <div class="form-card">
+                            <div class="form-card mb-4">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h2 class="fs-title">Account Information:</h2>
+                                        <h2 class="fs-title">Basic Information:</h2>
                                     </div>
                                     <div class="col-5">
-                                        <h2 class="steps">Step 1 - 4</h2>
+                                        <h2 class="steps">Step <span class="current-count"></span> - <span class="total-field"></span></h2>
                                     </div>
-                                </div> <label class="fieldlabels">Email: *</label> <input type="email" name="email"
-                                    placeholder="Email Id" /> <label class="fieldlabels">Username: *</label> <input
-                                    type="text" name="uname" placeholder="UserName" /> <label
-                                    class="fieldlabels">Password: *</label> <input type="password" name="pwd"
-                                    placeholder="Password" /> <label class="fieldlabels">Confirm Password: *</label>
-                                <input type="password" name="cpwd" placeholder="Confirm Password" />
-                            </div> <input type="button" name="next" class="next action-button" value="Next" />
+                                </div> 
+                                <div class="row">
+                                    <div class="col-md-12 mb-4">
+                                 <h3 class="text-center mt-2">How do you identify?</h3>
+                                 </div>
+                                <div class="col-md-4 ">
+                                    <label class="labl">
+                                        <input type="radio" name="gender" value="m" checked="checked"/>
+                                        <div class="text-center">Male</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <label class="labl">
+                                        <input type="radio" name="gender" value="f" />
+                                        <div class="text-center">Female</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <label class="labl">
+                                        <input type="radio" name="gender" value="o" />
+                                        <div class="text-center">Non-Binary</div>
+                                    </label>
+                                    </div>
+                               </div>
+                            </div> <!-- end form card -->
+                            <input type="button" name="next" class="next action-button" value="Next" />
                         </fieldset>
+                        <!-- end 1 fieldset -->
+                        <!-- start 2 fieldset -->
+                        <fieldset>
+                            <div class="form-card mb-4">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Basic Information:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step <span class="current-count"></span> - <span class="total-field"></span></h2>
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col-md-12 mb-4">
+                                 <h3 class="text-center mt-2">How old are you?</h3>
+                                 </div>
+                                <div class="col-md-4 ">
+                                    <label class="labl">
+                                        <input type="radio" name="age" value="18-23"/>
+                                        <div class="text-center">18-23</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <label class="labl">
+                                        <input type="radio" name="age" value="24-34" />
+                                        <div class="text-center">24-34</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <label class="labl">
+                                        <input type="radio" name="age" value="24-34" />
+                                        <div class="text-center">24-34</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <label class="labl">
+                                        <input type="radio" name="age" value="50" />
+                                        <div class="text-center">50 or Above</div>
+                                    </label>
+                                    </div>
+                               </div>
+                            </div> <!-- end form card -->
+                            <input type="button" name="next" class="next action-button" value="Next" />
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        </fieldset>
+                        <!-- end 2 fieldset -->
+                        <!-- 3 fieldset -->
+                        <fieldset>
+                            <div class="form-card mb-4">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Basic Information:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step <span class="current-count"></span> - <span class="total-field"></span></h2>
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col-md-12 mb-4">
+                                 <h3 class="text-center mt-2">Which Gainful products are you interested in?</h3>
+                                 </div>
+                                <div class="col-md-4 ">
+                                    <label class="labl">
+                                        <input type="checkbox" name="pro_interested[]" value="Personalized Protein Powder"/>
+                                        <div class="text-center">Personalized Protein Powder</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <label class="labl">
+                                        <input type="checkbox" name="pro_interested[]" value="Personalized Hydration" />
+                                        <div class="text-center">Personalized Hydration</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <label class="labl">
+                                        <input type="checkbox" name="pro_interested[]" value="Personalized Pre-Workout" />
+                                        <div class="text-center">Personalized Pre-Workout</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <label class="labl">
+                                        <input type="checkbox" name="pro_interested[]" value="Creatine Performance Boost" />
+                                        <div class="text-center">Creatine Performance Boost</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <label class="labl">
+                                        <input type="checkbox" name="pro_interested[]" value="Collagen Performance Boost" />
+                                        <div class="text-center">Collagen Performance Boost</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <label class="labl">
+                                        <input type="checkbox" name="pro_interested[]" value="Fiber Performance Boost" />
+                                        <div class="text-center">Fiber Performance Boost</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <label class="labl">
+                                        <input type="checkbox" name="pro_interested[]" value="All of the above" />
+                                        <div class="text-center">All of the above</div>
+                                    </label>
+                                    </div>
+                               </div>
+                            </div> <!-- end form card -->
+                            <input type="button" name="next" class="next action-button" value="Next" />
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        </fieldset>
+                        <!-- end 3 fieldset -->
+                        <!-- 4 fieldset -->
+                        <fieldset>
+                            <div class="form-card mb-4">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Basic Information:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step <span class="current-count"></span> - <span class="total-field"></span></h2>
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col-md-12 mb-4">
+                                 <h3 class="text-center mt-2">What is your current weight and height?</h3>
+                                 </div>
+                                 <div class="col-md-12 row">
+                                <div class="col-md-8 mx-auto">
+                                    <label for="weight">Weight</label>
+                                        <input type="text" name="weight" placeholder="LBS" value="" class="form-control"/>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-12 row">
+                                    <div class="col-md-4 mx-auto">
+                                    <label for="height_ft">Height</label>
+                                        <input type="text" name="height_ft" placeholder="FT" value="" class="form-control"/>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <label for="height_in"></label>
+                                        <input type="text" name="height_in" placeholder="IN" value="" class="form-control mt-2"/>
+                                    </div>
+                                    </div>
+                               </div>
+                            </div> <!-- end form card -->
+                            <input type="button" name="next" class="next action-button" value="Next" />
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        </fieldset>
+                        <!-- end 4 fieldset -->
+                        <!-- 5 fieldset -->
+                        <fieldset>
+                            <div class="form-card mb-4">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Basic Information:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step <span class="current-count"></span> - <span class="total-field"></span></h2>
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col-md-12 mb-4">
+                                 <h3 class="text-center mt-2">On average, how many hours of sleep do you get per night?</h3>
+                                 </div>
+                                 <div class="col-md-12">
+                                <div class="col-md-7 mx-auto">
+                                    <label for="sleep" class="text-left">Average hours of sleep</label>
+                                     <select name="sleep" id="" class="form-control">
+                                     <option value="" disabled="" selected="">Select one</option>
+                                            <option value="4">4 or less </option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7" selected="">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10 or more</option>
+                                     </select>
+                                    </div>
+                                    </div>
+                               </div>
+                            </div> <!-- end form card -->
+                            <input type="button" name="next" class="next action-button" value="Next" />
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        </fieldset>
+                        <!-- end 5 fieldset -->
+                        <!-- 6 fieldset -->
+                        <fieldset>
+                            <div class="form-card mb-4">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Basic Information:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step <span class="current-count"></span> - <span class="total-field"></span></h2>
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col-md-12 mb-4">
+                                 <h3 class="text-center mt-2">What describes your typical eating pattern?</h3>
+                                 </div>
+                                <div class="col-md-6 ">
+                                    <label class="labl">
+                                    <input type="radio" name="eating_pattern" value="3" />
+                                        <div class="text-center">3 meals + a few snacks per day</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <label class="labl">
+                                        <input type="checkbox" name="eating_pattern" value="4" />
+                                        <div class="text-center">4 or more meals per day</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <label class="labl">
+                                        <input type="checkbox" name="eating_pattern" value="snack" />
+                                        <div class="text-center">Snacking throughout the day</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <label class="labl">
+                                        <input type="checkbox" name="eating_pattern" value="eat" />
+                                        <div class="text-center">I eat when I think of it / whenever I'm hungry</div>
+                                    </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <label class="labl">
+                                        <input type="checkbox" name="eating_pattern" value="fasting" />
+                                        <div class="text-center">Periods of fasting between meals</div>
+                                    </label>
+                                    </div>
+                               </div>
+                            </div> <!-- end form card -->
+                            <input type="button" name="next" class="next action-button" value="Next" />
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        </fieldset>
+                        <!-- end 6 fieldset -->
                         <fieldset>
                             <div class="form-card">
                                 <div class="row">
@@ -336,6 +374,7 @@ var current_fs, next_fs, previous_fs; //fieldsets
 var opacity;
 var current = 1;
 var steps = $("fieldset").length;
+$('.total-field').text(steps)
 
 setProgressBar(current);
 
@@ -343,9 +382,9 @@ $(".next").click(function(){
 
 current_fs = $(this).parent();
 next_fs = $(this).parent().next();
-
+console.log(next_fs)
 //Add Class Active
-$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+// $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
 //show the next fieldset
 next_fs.show();
@@ -370,9 +409,9 @@ $(".previous").click(function(){
 
 current_fs = $(this).parent();
 previous_fs = $(this).parent().prev();
-
+console.log(current_fs)
 //Remove class active
-$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+// $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
 
 //show the previous fieldset
 previous_fs.show();
@@ -392,13 +431,25 @@ previous_fs.css({'opacity': opacity});
 duration: 500
 });
 setProgressBar(--current);
+
 });
 
 function setProgressBar(curStep){
+     console.log(curStep)
 var percent = parseFloat(100 / steps) * curStep;
 percent = percent.toFixed();
 $(".progress-bar")
 .css("width",percent+"%")
+$('.current-count').text(curStep);
+if(curStep<=6){
+    $("#progressbar li").eq(0).addClass("active");
+    $("#progressbar li").eq(1).removeClass("active");
+    $("#progressbar li").eq(2).removeClass("active");
+}else if(curStep>=7 && curStep<8){
+    $("#progressbar li").eq(1).addClass("active");
+}else if(curStep>=9){
+    $("#progressbar li").eq(2).addClass("active");
+}
 }
 
 $(".submit").click(function(){
