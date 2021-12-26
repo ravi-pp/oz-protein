@@ -154,18 +154,18 @@ p {
     font-weight: 400
 }
 
-#progressbar #account:before {
+#progressbar #basic:before {
     font-family: FontAwesome;
     content: "\f13e" 
     
 }
 
-#progressbar #personal:before {
+#progressbar #diet:before {
     font-family: FontAwesome;
     content: "\f0f5"
 }
 
-#progressbar #payment:before {
+#progressbar #goals:before {
     font-family: FontAwesome;
     content: "\f030"
 }
