@@ -23,9 +23,10 @@
                     <form id="msform">
                         <!-- progressbar -->
                         <ul id="progressbar">
-                            <li class="active" id="account"><strong>Basic</strong></li>
-                            <li id="personal"><strong>Personal</strong></li>
-                            <li id="payment"><strong>Image</strong></li>
+                            <li class="active" id="basic"><strong>gitBasic</strong></li>
+                            <li id="diet"><strong>Diet</strong></li>
+                            <li id="goals"><strong>Goals</strong></li>
+                            <!-- <li id="exercise"><strong>Exercise</strong></li> -->
                             <li id="confirm"><strong>Finish</strong></li>
                         </ul>
                         <div class="progress">
