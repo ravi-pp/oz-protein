@@ -618,7 +618,7 @@
                                         <div class="text-center">Sports/fitness performance</div>
                                     </label>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                     <label class="labl">
                                         <input type="checkbox" name="nutrition_goals[]" value="Supplement diet" />
                                         <div class="text-center">Supplement diet</div>
@@ -814,7 +814,7 @@
                                  <div class="col-md-12">
                                 <div class="col-md-7 mx-auto">
                                     <label for="exercise_perweek" class="text-left">Frequency</label>
-                                     <select name="sleep" id="" class="form-control">
+                                     <select name="exercise_perweek" id="" class="form-control">
                                         <option value="" disabled="" selected="">Select one</option>
                                         <option value="1">1 or less</option>
                                         <option value="2" selected="">2 - 3</option>
@@ -845,37 +845,110 @@
                                     <div class="col-md-12 mb-4">
                                  <h3 class="text-center mt-2">What is the average intensity level of your exercise?</h3>
                                  </div>
-                                 <div class="col-md-12">
-                                <!-- <div class="col-md-7 mx-auto">
-                                   
-                                    </div> -->
+                                 <div class="col-md-12 text-center">
+                                    <span class="exercise_intensity_light text-muted pull-left">Very Light</span> <span class="exercise_intensity_moderate">Moderate</span> <span class="exercise_intensity_intense text-muted pull-right">Very Intense</span>
                                     <input type="range" name="exercise_intensity" min="1" max="100" value="50" class="slider" id="myRange">
                                     </div>
+                                    <div class="col-md-12">
+                                     <div class="alert alert-secondary"><b id="exercise_action_title">Moderate:</b> <span id="exercise_action_text">Will break a sweat after performing the activity for 20-30 minutes. Breathing and heart rate are elevated.</span></div>
+                                 </div>
                                </div>
                             </div> <!-- end form card -->
                             <input type="button" name="next" class="next action-button" value="Next" />
                             <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         </fieldset>
                          <!-- end 17 fieldset -->
-                        <!-- <fieldset>
+                         <!-- 18 fieldset -->
+                         <fieldset>
+                            <div class="form-card mb-4">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Exercise Information:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step <span class="current-count"></span> - <span class="total-field"></span></h2>
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col-md-12 mb-4">
+                                 <h3 class="text-center mt-2">How would you describe your perspiration level during exercise?</h3>
+                                 </div>
+                                 <div class="col-md-12 text-center">
+                                    <span class="perspiration_level_light text-muted pull-left">Very Light</span> <span class="perspiration_level_moderate">Moderate</span> <span class="perspiration_level_intense text-muted pull-right">Very Intense</span>
+                                    <input type="range" name="perspiration_level" min="1" max="100" value="50" class="slider" id="myRange">
+                                    </div>
+                                    <div class="col-md-12">
+                                     <div class="alert alert-secondary"><b id="exercise_action_title">Moderate:</b> <span id="exercise_action_text">After moderate exercise, your shirt is somewhat sweaty.</span></div>
+                                 </div>
+                               </div>
+                            </div> <!-- end form card -->
+                            <input type="button" name="next" class="next action-button" value="Next" />
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        </fieldset>
+                         <!-- end 18 fieldset -->
+                         <!-- 19 fieldset -->
+                         <fieldset>
+                            <div class="form-card mb-4">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Exercise Information:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step <span class="current-count"></span> - <span class="total-field"></span></h2>
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col-md-12 mb-4">
+                                 <h3 class="text-center mt-2">How did you hear about OZ Protien?</h3>
+                                 </div>
+                                 <div class="col-md-12">
+                                <div class="col-md-7 mx-auto">
+                                    <label for="hear_about" class="text-left">Frequency</label>
+                                     <select name="hear_about" id="" class="form-control">
+                                        <option value="" disabled="" selected="">Select one</option>
+                                        <option value="news">News Article</option>
+                                        <option value="instagram">Instagram</option>
+                                        <option value="tv">TV</option>
+                                        <option value="mailer">Mailer</option>
+                                        <option value="friend">From a friend</option>
+                                        <option value="other">Other</option>
+                                        <option value="google">Google</option>
+                                        <option value="podcast">Podcast</option>
+                                        <option value="youtube">YouTube</option>
+                                        <option value="snapchat">Snapchat</option>
+                                        <option value="facebook">Facebook</option>
+                                        <option value="blog">A Blog</option>
+                                        <option value="review-site" selected="">Review Site</option>
+                                        <option value="tiktok">TikTok</option>
+                                     </select>
+                                    </div>
+                                    </div>
+                               </div>
+                            </div> <!-- end form card -->
+                            <input type="button" name="next" class="next action-button" value="Next" />
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        </fieldset>
+                         <!-- end 19 fieldset -->
+                         <!-- 20 fieldset -->
+                        <fieldset>
                             <div class="form-card">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h2 class="fs-title">Personal Information:</h2>
+                                        <h2 class="fs-title">Final Information:</h2>
                                     </div>
                                     <div class="col-5">
-                                        <h2 class="steps">Step 2 - 4</h2>
+                                    <h2 class="steps">Step <span class="current-count"></span> - <span class="total-field"></span></h2>
                                     </div>
                                 </div> <label class="fieldlabels">First Name: *</label> <input type="text" name="fname"
-                                    placeholder="First Name" /> <label class="fieldlabels">Last Name: *</label> <input
-                                    type="text" name="lname" placeholder="Last Name" /> <label
-                                    class="fieldlabels">Contact No.: *</label> <input type="text" name="phno"
-                                    placeholder="Contact No." /> <label class="fieldlabels">Alternate Contact No.:
-                                    *</label> <input type="text" name="phno_2" placeholder="Alternate Contact No." />
-                            </div> <input type="button" name="next" class="next action-button" value="Next" /> <input
+                                    placeholder="First Name" /> <label
+                                    class="fieldlabels">Email: *</label> <input type="text" name="email"
+                                    placeholder="Contact No." /> <label class="fieldlabels">Contact No.:
+                                    *</label> <input type="text" name="phno" placeholder="Contact No." />
+                            </div> <input type="button" name="Submit" class="next1 action-button" value="Submit" /> <input
                                 type="button" name="previous" class="previous action-button-previous"
                                 value="Previous" />
-                        </fieldset> -->
+                        </fieldset>
+                        <!-- end 20 fieldset -->
                         <!-- <fieldset>
                             <div class="form-card">
                                 <div class="row">
@@ -998,26 +1071,36 @@ setProgressBar(--current);
 });
 
 function setProgressBar(curStep){
-     console.log(curStep)
+
 var percent = parseFloat(100 / steps) * curStep;
 percent = percent.toFixed();
 $(".progress-bar")
 .css("width",percent+"%")
 $(".progress-bar").text(percent+"%");
 $('.current-count').text(curStep);
-if(curStep<=6){
-    $("#progressbar li").eq(0).addClass("active");
-    $("#progressbar li").eq(1).removeClass("active");
-    $("#progressbar li").eq(2).removeClass("active");
-}else if(curStep>=7 && curStep<=11){
-    $("#progressbar li").eq(1).addClass("active");
-    $("#progressbar li").eq(2).removeClass("active");
-}else if(curStep>=11 &&  curStep<=13){
-    $("#progressbar li").eq(2).addClass("active");
-    $("#progressbar li").eq(3).removeClass("active");
-}else if(curStep>=14 &&  curStep<18){
-    $("#progressbar li").eq(3).addClass("active");
+if(curStep>=20){
+    $(".progress-bar").removeClass('progress-bar-striped');
+    // $(".progress-bar").addClass('bg-success');
+}else{
+    $(".progress-bar").addClass('progress-bar-striped');
+    // $(".progress-bar").removeClass('bg-success');
 }
+    if(curStep<=6){
+        $("#progressbar li").eq(0).addClass("active");
+        $("#progressbar li").eq(1).removeClass("active");
+        $("#progressbar li").eq(2).removeClass("active");
+    }else if(curStep>=7 && curStep<=11){
+        $("#progressbar li").eq(1).addClass("active");
+        $("#progressbar li").eq(2).removeClass("active");
+    }else if(curStep>=11 &&  curStep<=13){
+        $("#progressbar li").eq(2).addClass("active");
+        $("#progressbar li").eq(3).removeClass("active");
+    }else if(curStep>=14 &&  curStep<=19){
+        $("#progressbar li").eq(3).addClass("active");
+        $("#progressbar li").eq(4).removeClass("active");
+    }else if(curStep>=20){
+        $("#progressbar li").eq(4).addClass("active");
+    }
 }
 
 $(".submit").click(function(){

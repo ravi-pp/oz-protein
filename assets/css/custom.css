@@ -227,6 +227,7 @@ body{
     object-fit: cover
 }
 /* ravi css */
+.alert-secondary{font-size: 13px;text-align: center;}
 /**************************************Custom checkbox and radio**************************************************/
 .labl {
     display : block;
@@ -238,16 +239,16 @@ body{
 .labl > input + div{ /* DIV STYLES */
     cursor:pointer;
     border: 2px solid #5e5c5c61;
-    padding: 12px 0px;
+    padding: 12px 2px;
     border-radius: 4px;
-    font-size: 18px;
+    font-size: 16px;
 }
 .labl > input:checked + div{ /* (RADIO CHECKED) DIV STYLES */
     background-color: #e1dad6;
     border: 1px solid #694fb8;
     padding: 12px 0px;
     border-radius: 4px;
-    font-size: 18px;
+    font-size: 17px;
 }
 /*************************************************custom range slider********************************/
 .slidecontainer {
