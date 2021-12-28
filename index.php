@@ -19,10 +19,11 @@
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                 <div class="card px-3 pt-4 pb-0 mt-3 mb-3">
                     <!-- <h2 id="heading">OZ Protein Quiz</h2> -->
-                   <div class="col-md-12" style="background: lightgrey;border-radius: 4px;">
+                   <div class="col-md-12 logo_div">
                    <img src="assets/img/logo.png" alt="logo" style="height:145px;width:243px;">
                    </div>
-                    <p>Best product waiting for you!</p>
+                    <span class="text-muted">Best product waiting for you!</span>
+                    <span class="text-danger text-center" id="error"></span>
                     <form id="msform">
                         <!-- progressbar -->
                         <ul id="progressbar">

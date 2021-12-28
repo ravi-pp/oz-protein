@@ -1,3 +1,9 @@
+/***
+Theme color - #673AB7 /violet
+Theme color - #000000 /Black
+Checkbox active color - #694fb8
+Next button hover - #311B92
+**/
 * {
     margin: 0;
     padding: 0
@@ -13,7 +19,7 @@ p {
 
 #heading {
     text-transform: uppercase;
-    color: #673AB7;
+    color: #000000;
     font-weight: normal
 }
 body{
@@ -25,7 +31,7 @@ body{
 #msform {
     text-align: center;
     position: relative;
-    margin-top: 20px
+    margin-top: 12px
 }
 
 #msform fieldset {
@@ -51,7 +57,7 @@ body{
 #msform textarea {
     padding: 8px 15px 8px 15px;
     border: 1px solid #ccc;
-    border-radius: 0px;
+    border-radius: 4px;
     margin-bottom: 25px;
     margin-top: 2px;
     width: 100%;
@@ -68,13 +74,13 @@ body{
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #673AB7;
+    border: 1px solid #000000;
     outline-width: 0
 }
 
 #msform .action-button {
     width: 100px;
-    background: #673AB7;
+    background: #1c1919;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -87,7 +93,7 @@ body{
 
 #msform .action-button:hover,
 #msform .action-button:focus {
-    background-color: #311B92
+    background-color: #000000
 }
 
 #msform .action-button-previous {
@@ -116,14 +122,14 @@ body{
 
 .fs-title {
     font-size: 18px;
-    color: #673AB7;
+    color: #302727;
     margin-bottom: 15px;
     font-weight: normal;
     text-align: left
 }
 
 .purple-text {
-    color: #673AB7;
+    color: #000000;
     font-weight: normal
 }
 
@@ -147,7 +153,7 @@ body{
 }
 
 #progressbar .active {
-    color: #673AB7
+    color: #000000
 }
 
 #progressbar li {
@@ -211,7 +217,7 @@ body{
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-    background: #673AB7
+    background: #000000
 }
 
 .progress {
@@ -219,7 +225,7 @@ body{
 }
 
 .progress-bar {
-    background-color: #673AB7
+    background-color: #000000
 }
 
 .fit-image {
@@ -227,6 +233,7 @@ body{
     object-fit: cover
 }
 /* ravi css */
+.logo_div {background: #d3d3d3;border-radius: 4px;}
 .alert-secondary{font-size: 13px;text-align: center;}
 /**************************************Custom checkbox and radio**************************************************/
 .labl {
@@ -238,14 +245,14 @@ body{
 }
 .labl > input + div{ /* DIV STYLES */
     cursor:pointer;
-    border: 2px solid #5e5c5c61;
+    border: 1px solid #5e5c5c61;
     padding: 12px 2px;
     border-radius: 4px;
     font-size: 16px;
 }
 .labl > input:checked + div{ /* (RADIO CHECKED) DIV STYLES */
     background-color: #e1dad6;
-    border: 1px solid #694fb8;
+    border: 1px solid #000000;
     padding: 12px 0px;
     border-radius: 4px;
     font-size: 17px;
