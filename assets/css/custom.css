@@ -1,3 +1,9 @@
+/***
+Theme color - #673AB7 /violet
+Theme color - #000000 /Black
+Checkbox active color - #694fb8
+Next button hover - #311B92
+**/
 * {
     margin: 0;
     padding: 0
@@ -13,14 +19,19 @@ p {
 
 #heading {
     text-transform: uppercase;
-    color: #673AB7;
+    color: #000000;
     font-weight: normal
+}
+body{
+    background: url(../img/bg2.jpg);
+    background-position: top;
+    background-size: cover;
 }
 
 #msform {
     text-align: center;
     position: relative;
-    margin-top: 20px
+    margin-top: 12px
 }
 
 #msform fieldset {
@@ -46,7 +57,7 @@ p {
 #msform textarea {
     padding: 8px 15px 8px 15px;
     border: 1px solid #ccc;
-    border-radius: 0px;
+    border-radius: 4px;
     margin-bottom: 25px;
     margin-top: 2px;
     width: 100%;
@@ -63,13 +74,13 @@ p {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #673AB7;
+    border: 1px solid #000000;
     outline-width: 0
 }
 
 #msform .action-button {
     width: 100px;
-    background: #673AB7;
+    background: #1c1919;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -82,7 +93,7 @@ p {
 
 #msform .action-button:hover,
 #msform .action-button:focus {
-    background-color: #311B92
+    background-color: #000000
 }
 
 #msform .action-button-previous {
@@ -110,20 +121,20 @@ p {
 }
 
 .fs-title {
-    font-size: 20px;
-    color: #673AB7;
+    font-size: 18px;
+    color: #302727;
     margin-bottom: 15px;
     font-weight: normal;
     text-align: left
 }
 
 .purple-text {
-    color: #673AB7;
+    color: #000000;
     font-weight: normal
 }
 
 .steps {
-    font-size: 20px;
+    font-size: 18px;
     color: gray;
     margin-bottom: 10px;
     font-weight: normal;
@@ -142,31 +153,37 @@ p {
 }
 
 #progressbar .active {
-    color: #673AB7
+    color: #000000
 }
 
 #progressbar li {
     list-style-type: none;
-    font-size: 14px;
-    width: 25%;
+    font-size: 12px;
+    width: 20%;
     float: left;
     position: relative;
     font-weight: 400
 }
 
-#progressbar #account:before {
+#progressbar #basic:before {
     font-family: FontAwesome;
-    content: "\f13e"
+    content: "\f007" 
+    
 }
 
-#progressbar #personal:before {
+#progressbar #diet:before {
     font-family: FontAwesome;
-    content: "\f007"
+    content: "\f0f5"
 }
 
-#progressbar #payment:before {
+#progressbar #exercise:before {
     font-family: FontAwesome;
-    content: "\f030"
+    content: "\f0e7"
+}
+
+#progressbar #goals:before {
+    font-family: FontAwesome;
+    content: "\f073"
 }
 
 #progressbar #confirm:before {
@@ -175,15 +192,15 @@ p {
 }
 
 #progressbar li:before {
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
+    width: 26px;
+    height: 26px;
+    line-height: 23px;
     display: block;
-    font-size: 20px;
+    font-size: 14px;
     color: #ffffff;
     background: lightgray;
     border-radius: 50%;
-    margin: 6px auto 10px auto;
+    margin: 13px auto 10px auto;
     padding: 2px
 }
 
@@ -200,7 +217,7 @@ p {
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-    background: #673AB7
+    background: #000000
 }
 
 .progress {
@@ -208,7 +225,7 @@ p {
 }
 
 .progress-bar {
-    background-color: #673AB7
+    background-color: #000000
 }
 
 .fit-image {
@@ -216,6 +233,9 @@ p {
     object-fit: cover
 }
 /* ravi css */
+.logo_div {background: #d3d3d3;border-radius: 4px;}
+.alert-secondary{font-size: 13px;text-align: center;}
+/**************************************Custom checkbox and radio**************************************************/
 .labl {
     display : block;
 }
@@ -225,15 +245,51 @@ p {
 }
 .labl > input + div{ /* DIV STYLES */
     cursor:pointer;
-    border: 2px solid #5e5c5c61;
-    padding: 12px 0px;
+    border: 1px solid #5e5c5c61;
+    padding: 12px 2px;
     border-radius: 4px;
-    font-size: 20px;
+    font-size: 16px;
 }
 .labl > input:checked + div{ /* (RADIO CHECKED) DIV STYLES */
     background-color: #e1dad6;
-    border: 1px solid #694fb8;
+    border: 1px solid #000000;
     padding: 12px 0px;
     border-radius: 4px;
-    font-size: 20px;
+    font-size: 17px;
 }
+/*************************************************custom range slider********************************/
+.slidecontainer {
+    width: 100%;
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider:hover {
+    opacity: 1;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #000000;
+    cursor: pointer;
+    border-radius:50%;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+  }
