@@ -17,13 +17,14 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
-                <div class="card px-3 pt-4 pb-0 mt-3 mb-3">
+                <div class="card px-3 pt-1 pb-0 mt-3 mb-3">
                     <!-- <h2 id="heading">OZ Protein Quiz</h2> -->
+                    <span style="text-align:right;"><a href="#" title="Home" style="color:#252525;"><i class="fa fa-times"></i> </a></span>
                    <div class="col-md-12 logo_div">
                    <img src="assets/img/logo.png" alt="logo" style="height:145px;width:243px;">
                    </div>
                     <span class="text-muted">Best product waiting for you!</span>
-                    <span class="text-danger text-center" id="error"></span>
+                    <span class="alert-danger text-center" id="error"></span>
                     <form id="msform">
                         <!-- progressbar -->
                         <ul id="progressbar">
@@ -136,37 +137,37 @@
                                     <div class="col-md-12 mb-4">
                                  <h3 class="text-center mt-2">Which Gainful products are you interested in?</h3>
                                  </div>
-                                <div class="col-md-4 ">
+                                <div class="col-md-6">
                                     <label class="labl">
                                         <input type="checkbox" name="pro_interested[]" value="Personalized Protein Powder"/>
                                         <div class="text-center">Personalized Protein Powder</div>
                                     </label>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                     <label class="labl">
                                         <input type="checkbox" name="pro_interested[]" value="Personalized Hydration" />
                                         <div class="text-center">Personalized Hydration</div>
                                     </label>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                     <label class="labl">
                                         <input type="checkbox" name="pro_interested[]" value="Personalized Pre-Workout" />
                                         <div class="text-center">Personalized Pre-Workout</div>
                                     </label>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                     <label class="labl">
                                         <input type="checkbox" name="pro_interested[]" value="Creatine Performance Boost" />
                                         <div class="text-center">Creatine Performance Boost</div>
                                     </label>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                     <label class="labl">
                                         <input type="checkbox" name="pro_interested[]" value="Collagen Performance Boost" />
                                         <div class="text-center">Collagen Performance Boost</div>
                                     </label>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                     <label class="labl">
                                         <input type="checkbox" name="pro_interested[]" value="Fiber Performance Boost" />
                                         <div class="text-center">Fiber Performance Boost</div>
@@ -240,11 +241,11 @@
                                 <div class="col-md-7 mx-auto">
                                     <label for="sleep" class="text-left">Average hours of sleep</label>
                                      <select name="sleep" id="" class="form-control">
-                                     <option value="" disabled="" selected="">Select one</option>
+                                     <option value="">Select one</option>
                                             <option value="4">4 or less </option>
                                             <option value="5">5</option>
                                             <option value="6">6</option>
-                                            <option value="7" selected="">7</option>
+                                            <option value="7">7</option>
                                             <option value="8">8</option>
                                             <option value="9">9</option>
                                             <option value="10">10 or more</option>
@@ -816,9 +817,9 @@
                                 <div class="col-md-7 mx-auto">
                                     <label for="exercise_perweek" class="text-left">Frequency</label>
                                      <select name="exercise_perweek" id="" class="form-control">
-                                        <option value="" disabled="" selected="">Select one</option>
+                                        <option value="" disabled="">Select one</option>
                                         <option value="1">1 or less</option>
-                                        <option value="2" selected="">2 - 3</option>
+                                        <option value="2">2 - 3</option>
                                         <option value="4">4 - 5</option>
                                         <option value="6">6 - 7</option>
                                         <option value="8">8 or more</option>
@@ -848,7 +849,7 @@
                                  </div>
                                  <div class="col-md-12 text-center">
                                     <span class="exercise_intensity_light text-muted pull-left">Very Light</span> <span class="exercise_intensity_moderate">Moderate</span> <span class="exercise_intensity_intense text-muted pull-right">Very Intense</span>
-                                    <input type="range" name="exercise_intensity" min="1" max="100" value="50" class="slider" id="myRange">
+                                    <input type="range" name="exercise_intensity" min="1" max="100" value="50" class="slider" id="exercise_intensity">
                                     </div>
                                     <div class="col-md-12">
                                      <div class="alert alert-secondary"><b id="exercise_action_title">Moderate:</b> <span id="exercise_action_text">Will break a sweat after performing the activity for 20-30 minutes. Breathing and heart rate are elevated.</span></div>
@@ -875,11 +876,11 @@
                                  <h3 class="text-center mt-2">How would you describe your perspiration level during exercise?</h3>
                                  </div>
                                  <div class="col-md-12 text-center">
-                                    <span class="perspiration_level_light text-muted pull-left">Very Light</span> <span class="perspiration_level_moderate">Moderate</span> <span class="perspiration_level_intense text-muted pull-right">Very Intense</span>
-                                    <input type="range" name="perspiration_level" min="1" max="100" value="50" class="slider" id="myRange">
+                                    <span class="perspiration_level_light text-muted pull-left">Low</span> <span class="perspiration_level_moderate">Medium</span> <span class="perspiration_level_intense text-muted pull-right">High</span>
+                                    <input type="range" name="perspiration_level" min="1" max="100" value="50" class="slider" id="perspiration_level">
                                     </div>
                                     <div class="col-md-12">
-                                     <div class="alert alert-secondary"><b id="exercise_action_title">Moderate:</b> <span id="exercise_action_text">After moderate exercise, your shirt is somewhat sweaty.</span></div>
+                                     <div class="alert alert-secondary"><b id="perspiration_action_title">Medium:</b> <span id="perspiration_action_text">After moderate exercise, your shirt is somewhat sweaty.</span></div>
                                  </div>
                                </div>
                             </div> <!-- end form card -->
@@ -906,7 +907,7 @@
                                 <div class="col-md-7 mx-auto">
                                     <label for="hear_about" class="text-left">Frequency</label>
                                      <select name="hear_about" id="" class="form-control">
-                                        <option value="" disabled="" selected="">Select one</option>
+                                        <option value="">Select one</option>
                                         <option value="news">News Article</option>
                                         <option value="instagram">Instagram</option>
                                         <option value="tv">TV</option>
@@ -919,7 +920,7 @@
                                         <option value="snapchat">Snapchat</option>
                                         <option value="facebook">Facebook</option>
                                         <option value="blog">A Blog</option>
-                                        <option value="review-site" selected="">Review Site</option>
+                                        <option value="review-site">Review Site</option>
                                         <option value="tiktok">TikTok</option>
                                      </select>
                                     </div>
@@ -997,15 +998,63 @@
     
     <script type='text/Javascript'>
     $(document).ready(function(){
-        var slider = document.getElementById("myRange");
-// var output = document.getElementById("demo");
-// output.innerHTML = slider.value; // Display the default slider value
-console.log(slider.value)
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  //output.innerHTML = this.value;
-  console.log(this.value)
-}
+        //slider A
+        var sliderA = document.getElementById("exercise_intensity");
+            sliderA.oninput = function() {
+             //console.log(this.value)
+            let sliderVal = this.value;
+            if(sliderVal<40 && sliderVal>=25){
+                $('.exercise_intensity_light').addClass('text-muted');
+                $('.exercise_intensity_intense').addClass('text-muted');
+                $('#exercise_action_title').text('Light:');
+                $('#exercise_action_text').text('Breathing and heart rate slightly elevated but sustainable for 30+ minutes.');
+            }else if(sliderVal<35){
+                $('.exercise_intensity_light').removeClass('text-muted');
+                $('.exercise_intensity_moderate').addClass('text-muted');
+                $('#exercise_action_title').text('Very Light:');
+                $('#exercise_action_text').text('Can continue activity for 30+ minutes without shortness of breath or breaking a sweat.');
+            }else if(sliderVal>60 && sliderVal <=80){
+                $('.exercise_intensity_light').addClass('text-muted');
+                $('.exercise_intensity_intense').addClass('text-muted');
+                $('#exercise_action_title').text('Intense:');
+                $('#exercise_action_text').text('Will break a sweat after performing the activity for about 10 minutes. Breathing becomes deeper and more frequent. You can carry on a conversation but not sing.');
+            }else if(sliderVal>80){
+                $('.exercise_intensity_intense').removeClass('text-muted');
+                $('.exercise_intensity_moderate').addClass('text-muted');
+                $('#exercise_action_title').text('Very Intense:');
+                $('#exercise_action_text').text('Will break a sweat after 3-5 minutes. Breathing is deep and rapid. You can only talk in short phrases.');
+            }else if(sliderVal>35 && sliderVal<60){
+                $('.exercise_intensity_moderate').removeClass('text-muted');
+                $('#exercise_action_title').text('Moderate:');
+                $('#exercise_action_text').text('Will break a sweat after performing the activity for 20-30 minutes. Breathing and heart rate are elevated.');
+            }
+        }
+        //slider B
+        var sliderB = document.getElementById("perspiration_level");
+            sliderB.oninput = function() {
+            // console.log(this.value)
+            let sliderVal = this.value;
+            if(sliderVal<40){
+                $('.perspiration_level_light').removeClass('text-muted');
+                $('.perspiration_level_intense').addClass('text-muted');
+                $('.perspiration_level_moderate').addClass('text-muted');
+                $('#perspiration_action_title').text('Low:');
+                $('#perspiration_action_text').text('After moderate exercise, your shirt is mostly dry.');
+            }else if(sliderVal>65){
+                $('.perspiration_level_intense').removeClass('text-muted');
+                $('.perspiration_level_moderate').addClass('text-muted');
+                $('.perspiration_level_light').addClass('text-muted');
+                $('#perspiration_action_title').text('High:');
+                $('#perspiration_action_text').text('After moderate exercise, your shirt is drenched.');
+            }else if(sliderVal>40 && sliderVal<65){
+                $('.perspiration_level_moderate').removeClass('text-muted');
+                $('.perspiration_level_intense').addClass('text-muted');
+                $('.perspiration_level_light').addClass('text-muted');
+                $('#perspiration_action_title').text('Medium:');
+                $('#perspiration_action_text').text('After moderate exercise, your shirt is somewhat sweaty.');
+            }
+        }
+
 
 var current_fs, next_fs, previous_fs; //fieldsets
 var opacity;
