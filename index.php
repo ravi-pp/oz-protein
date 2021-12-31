@@ -100,7 +100,7 @@
                                     </div>
                                     <div class="col-md-4">
                                     <label class="labl">
-                                        <input type="radio" name="age" value="24-34" />
+                                        <input type="radio" name="age" value="24-34"/>
                                         <div class="text-center">24-34</div>
                                     </label>
                                     </div>
@@ -139,43 +139,43 @@
                                  </div>
                                 <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="pro_interested[]" value="Personalized Protein Powder"/>
+                                        <input type="checkbox" name="pro_interested" value="Personalized Protein Powder"/>
                                         <div class="text-center">Personalized Protein Powder</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="pro_interested[]" value="Personalized Hydration" />
+                                        <input type="checkbox" name="pro_interested" value="Personalized Hydration" />
                                         <div class="text-center">Personalized Hydration</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="pro_interested[]" value="Personalized Pre-Workout" />
+                                        <input type="checkbox" name="pro_interested" value="Personalized Pre-Workout" />
                                         <div class="text-center">Personalized Pre-Workout</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="pro_interested[]" value="Creatine Performance Boost" />
+                                        <input type="checkbox" name="pro_interested" value="Creatine Performance Boost" />
                                         <div class="text-center">Creatine Performance Boost</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="pro_interested[]" value="Collagen Performance Boost" />
+                                        <input type="checkbox" name="pro_interested" value="Collagen Performance Boost" />
                                         <div class="text-center">Collagen Performance Boost</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="pro_interested[]" value="Fiber Performance Boost" />
+                                        <input type="checkbox" name="pro_interested" value="Fiber Performance Boost" />
                                         <div class="text-center">Fiber Performance Boost</div>
                                     </label>
                                     </div>
                                     <div class="col-md-12">
                                     <label class="labl">
-                                        <input type="checkbox" name="pro_interested[]" value="All of the above" />
+                                        <input type="checkbox" name="pro_interested" value="All of the above" />
                                         <div class="text-center">All of the above</div>
                                     </label>
                                     </div>
@@ -240,7 +240,7 @@
                                  <div class="col-md-12">
                                 <div class="col-md-7 mx-auto">
                                     <label for="sleep" class="text-left">Average hours of sleep</label>
-                                     <select name="sleep" id="" class="form-control">
+                                     <select name="sleep" id="sleep_select" class="form-control">
                                      <option value="">Select one</option>
                                             <option value="4">4 or less </option>
                                             <option value="5">5</option>
@@ -275,31 +275,31 @@
                                  </div>
                                 <div class="col-md-6 ">
                                     <label class="labl">
-                                    <input type="checkbox" name="eating_pattern" value="3" />
+                                    <input type="radio" name="eating_pattern" value="3" />
                                         <div class="text-center">3 meals + a few snacks per day</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="eating_pattern" value="4" />
+                                        <input type="radio" name="eating_pattern" value="4" />
                                         <div class="text-center">4 or more meals per day</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="eating_pattern" value="snack" />
+                                        <input type="radio" name="eating_pattern" value="snack" />
                                         <div class="text-center">Snacking throughout the day</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="eating_pattern" value="eat" />
+                                        <input type="radio" name="eating_pattern" value="eat" />
                                         <div class="text-center">I eat when I think of it / whenever I'm hungry</div>
                                     </label>
                                     </div>
                                     <div class="col-md-12">
                                     <label class="labl">
-                                        <input type="checkbox" name="eating_pattern" value="fasting" />
+                                        <input type="radio" name="eating_pattern" value="fasting" />
                                         <div class="text-center">Periods of fasting between meals</div>
                                     </label>
                                     </div>
@@ -327,55 +327,55 @@
                                  </div>
                                 <div class="col-md-6 ">
                                     <label class="labl">
-                                    <input type="checkbox" name="dietary[]" value="Gluten-free" />
+                                    <input type="checkbox" name="dietary" value="Gluten-free" />
                                         <div class="text-center">Gluten-free</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="dietary[]" value="Lactose-free" />
+                                        <input type="checkbox" name="dietary" value="Lactose-free" />
                                         <div class="text-center">Lactose-free</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="dietary[]" value="Soy-free" />
+                                        <input type="checkbox" name="dietary" value="Soy-free" />
                                         <div class="text-center">Soy-free</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="dietary[]" value="Whey-free" />
+                                        <input type="checkbox" name="dietary" value="Whey-free" />
                                         <div class="text-center">Whey-free</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="dietary[]" value="Vegan / plant-based" />
+                                        <input type="checkbox" name="dietary" value="Vegan / plant-based" />
                                         <div class="text-center">Vegan / plant-based</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="dietary[]" value="Paleo diet" />
+                                        <input type="checkbox" name="dietary" value="Paleo diet" />
                                         <div class="text-center">Paleo diet</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="dietary[]" value="Ketogenic diet" />
+                                        <input type="checkbox" name="dietary" value="Ketogenic diet" />
                                         <div class="text-center">Ketogenic diet</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="dietary[]" value="Caffeine-free" />
+                                        <input type="checkbox" name="dietary" value="Caffeine-free" />
                                         <div class="text-center">Caffeine-free</div>
                                     </label>
                                     </div>
                                     <div class="col-md-12">
                                     <label class="labl">
-                                        <input type="checkbox" name="dietary[]" value="None" />
+                                        <input type="checkbox" name="dietary" value="None" />
                                         <div class="text-center">None</div>
                                     </label>
                                     </div>
@@ -405,25 +405,25 @@
                                  </div>
                                 <div class="col-md-6 ">
                                     <label class="labl">
-                                    <input type="checkbox" name="servings_fruit[]" value="0" />
+                                    <input type="radio" name="servings_fruit" value="0" />
                                         <div class="text-center">0 servings</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="servings_fruit[]" value="1-2" />
+                                        <input type="radio" name="servings_fruit" value="1-2" />
                                         <div class="text-center">1-2 servings</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="servings_fruit[]" value="3-4" />
+                                        <input type="radio" name="servings_fruit" value="3-4" />
                                         <div class="text-center">3-4 servings</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="servings_fruit[]" value="5+" />
+                                        <input type="radio" name="servings_fruit" value="5+" />
                                         <div class="text-center">5+ servings</div>
                                     </label>
                                     </div>
@@ -453,25 +453,25 @@
                                  </div>
                                 <div class="col-md-6 ">
                                     <label class="labl">
-                                    <input type="checkbox" name="servings_vegi[]" value="0" />
+                                    <input type="radio" name="servings_vegi" value="0" />
                                         <div class="text-center">0 servings</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="servings_vegi[]" value="1-2" />
+                                        <input type="radio" name="servings_vegi" value="1-2" />
                                         <div class="text-center">1-2 servings</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="servings_vegi[]" value="3-4" />
+                                        <input type="radio" name="servings_vegi" value="3-4" />
                                         <div class="text-center">3-4 servings</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="servings_vegi[]" value="5+" />
+                                        <input type="radio" name="servings_vegi" value="5+" />
                                         <div class="text-center">5+ servings</div>
                                     </label>
                                     </div>
@@ -501,25 +501,25 @@
                                  </div>
                                 <div class="col-md-6 ">
                                     <label class="labl">
-                                    <input type="checkbox" name="servings_grain[]" value="0" />
+                                    <input type="radio" name="servings_grain" value="0" />
                                         <div class="text-center">0 servings</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="servings_grain[]" value="1-2" />
+                                        <input type="radio" name="servings_grain" value="1-2" />
                                         <div class="text-center">1-2 servings</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="servings_grain[]" value="3-4" />
+                                        <input type="radio" name="servings_grain" value="3-4" />
                                         <div class="text-center">3-4 servings</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="servings_grain[]" value="5+" />
+                                        <input type="radio" name="servings_grain" value="5+" />
                                         <div class="text-center">5+ servings</div>
                                     </label>
                                     </div>
@@ -546,19 +546,19 @@
                                  </div>
                                 <div class="col-md-6 ">
                                     <label class="labl">
-                                    <input type="checkbox" name="protien_powder[]" value="1-3" />
+                                    <input type="radio" name="protien_powder" value="1-3" />
                                         <div class="text-center">1-3 times per week</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="protien_powder[]" value="4-6" />
+                                        <input type="radio" name="protien_powder" value="4-6" />
                                         <div class="text-center">4-6 times per week</div>
                                     </label>
                                     </div>
                                     <div class="col-md-12">
                                     <label class="labl">
-                                        <input type="checkbox" name="protien_powder[]" value="7" />
+                                        <input type="radio" name="protien_powder" value="7" />
                                         <div class="text-center">Every Day</div>
                                     </label>
                                     </div>
@@ -586,43 +586,43 @@
                                  </div>
                                 <div class="col-md-6 ">
                                     <label class="labl">
-                                    <input type="checkbox" name="nutrition_goals[]" value="Build muscle" />
+                                    <input type="checkbox" name="nutrition_goals" value="Build muscle" />
                                         <div class="text-center">Build muscle</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="nutrition_goals[]" value="Gain weight" />
+                                        <input type="checkbox" name="nutrition_goals" value="Gain weight" />
                                         <div class="text-center">Gain weight</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="nutrition_goals[]" value="Increase calorie intake" />
+                                        <input type="checkbox" name="nutrition_goals" value="Increase calorie intake" />
                                         <div class="text-center">Increase calorie intake</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="nutrition_goals[]" value="Maintain muscle" />
+                                        <input type="checkbox" name="nutrition_goals" value="Maintain muscle" />
                                         <div class="text-center">Maintain muscle</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="nutrition_goals[]" value="Recover after workouts" />
+                                        <input type="checkbox" name="nutrition_goals" value="Recover after workouts" />
                                         <div class="text-center">Recover after workouts</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="nutrition_goals[]" value="Sports/fitness performance" />
+                                        <input type="checkbox" name="nutrition_goals" value="Sports/fitness performance" />
                                         <div class="text-center">Sports/fitness performance</div>
                                     </label>
                                     </div>
                                     <div class="col-md-12">
                                     <label class="labl">
-                                        <input type="checkbox" name="nutrition_goals[]" value="Supplement diet" />
+                                        <input type="checkbox" name="nutrition_goals" value="Supplement diet" />
                                         <div class="text-center">Supplement diet</div>
                                     </label>
                                     </div>
@@ -677,37 +677,37 @@
                                  </div>
                                 <div class="col-md-6 ">
                                     <label class="labl">
-                                    <input type="checkbox" name="exercise_time[]" value="Early Morning" />
+                                    <input type="radio" name="exercise_time" value="Early Morning" />
                                         <div class="text-center">Early Morning</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="exercise_time[]" value="Late Morning" />
+                                        <input type="radio" name="exercise_time" value="Late Morning" />
                                         <div class="text-center">Late Morning</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="exercise_time[]" value="Midday" />
+                                        <input type="radio" name="exercise_time" value="Midday" />
                                         <div class="text-center">Midday</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="exercise_time[]" value="Early Afternoon" />
+                                        <input type="radio" name="exercise_time" value="Early Afternoon" />
                                         <div class="text-center">Early Afternoon</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="exercise_time[]" value="Late Afternoon" />
+                                        <input type="radio" name="exercise_time" value="Late Afternoon" />
                                         <div class="text-center">Late Afternoon</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="exercise_time[]" value="Evening" />
+                                        <input type="radio" name="exercise_time" value="Evening" />
                                         <div class="text-center">Evening</div>
                                     </label>
                                     </div>
@@ -734,61 +734,61 @@
                                  </div>
                                 <div class="col-md-6 ">
                                     <label class="labl">
-                                    <input type="checkbox" name="primary_exercise[]" value="Resistance or weight training" />
+                                    <input type="checkbox" name="primary_exercise" value="Resistance or weight training" />
                                         <div class="text-center">Resistance or weight training</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="primary_exercise[]" value="Running" />
+                                        <input type="checkbox" name="primary_exercise" value="Running" />
                                         <div class="text-center">Running</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="primary_exercise[]" value="Cycling" />
+                                        <input type="checkbox" name="primary_exercise" value="Cycling" />
                                         <div class="text-center">Cycling</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="primary_exercise[]" value="Yoga or pilates" />
+                                        <input type="checkbox" name="primary_exercise" value="Yoga or pilates" />
                                         <div class="text-center">Yoga or pilates</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="primary_exercise[]" value="Dance or aerobics" />
+                                        <input type="checkbox" name="primary_exercise" value="Dance or aerobics" />
                                         <div class="text-center">Dance or aerobics</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="primary_exercise[]" value="Swimming" />
+                                        <input type="checkbox" name="primary_exercise" value="Swimming" />
                                         <div class="text-center">Swimming</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="primary_exercise[]" value="Team sports" />
+                                        <input type="checkbox" name="primary_exercise" value="Team sports" />
                                         <div class="text-center">Team sports</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="primary_exercise[]" value="Individual sports" />
+                                        <input type="checkbox" name="primary_exercise" value="Individual sports" />
                                         <div class="text-center">Individual sports</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="primary_exercise[]" value="Active lifestyle" />
+                                        <input type="checkbox" name="primary_exercise" value="Active lifestyle" />
                                         <div class="text-center">Active lifestyle</div>
                                     </label>
                                     </div>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="primary_exercise[]" value="Other" />
+                                        <input type="checkbox" name="primary_exercise" value="Other" />
                                         <div class="text-center">Other</div>
                                     </label>
                                     </div>
@@ -816,7 +816,7 @@
                                  <div class="col-md-12">
                                 <div class="col-md-7 mx-auto">
                                     <label for="exercise_perweek" class="text-left">Frequency</label>
-                                     <select name="exercise_perweek" id="" class="form-control">
+                                     <select name="exercise_perweek" id="exercise_perweek" class="form-control">
                                         <option value="" disabled="">Select one</option>
                                         <option value="1">1 or less</option>
                                         <option value="2">2 - 3</option>
@@ -905,8 +905,8 @@
                                  </div>
                                  <div class="col-md-12">
                                 <div class="col-md-7 mx-auto">
-                                    <label for="hear_about" class="text-left">Frequency</label>
-                                     <select name="hear_about" id="" class="form-control">
+                                    <label for="hear_about" class="text-left">Hear about</label>
+                                     <select name="hear_about" id="hear_about" class="form-control">
                                         <option value="">Select one</option>
                                         <option value="news">News Article</option>
                                         <option value="instagram">Instagram</option>
@@ -941,32 +941,16 @@
                                     <div class="col-5">
                                     <h2 class="steps">Step <span class="current-count"></span> - <span class="total-field"></span></h2>
                                     </div>
-                                </div> <label class="fieldlabels">First Name: *</label> <input type="text" name="fname"
-                                    placeholder="First Name" /> <label
+                                </div> <label class="fieldlabels">Full Name: *</label> <input type="text" name="fname"
+                                    placeholder="Full Name" /> <label
                                     class="fieldlabels">Email: *</label> <input type="text" name="email"
-                                    placeholder="Contact No." /> <label class="fieldlabels">Contact No.:
+                                    placeholder="Email" /> <label class="fieldlabels">Contact No.:
                                     *</label> <input type="text" name="phno" placeholder="Contact No." />
-                            </div> <input type="button" name="Submit" class="next1 action-button" value="Submit" /> <input
+                            </div> <input type="button" name="Submit" class="next1 action-button" id="submit" value="Submit" /> <input
                                 type="button" name="previous" class="previous action-button-previous"
                                 value="Previous" />
                         </fieldset>
                         <!-- end 20 fieldset -->
-                        <!-- <fieldset>
-                            <div class="form-card">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <h2 class="fs-title">Image Upload:</h2>
-                                    </div>
-                                    <div class="col-5">
-                                        <h2 class="steps">Step 3 - 4</h2>
-                                    </div>
-                                </div> <label class="fieldlabels">Upload Your Photo:</label> <input type="file"
-                                    name="pic" accept="image/*"> <label class="fieldlabels">Upload Signature
-                                    Photo:</label> <input type="file" name="pic" accept="image/*">
-                            </div> <input type="button" name="next" class="next action-button" value="Submit" /> <input
-                                type="button" name="previous" class="previous action-button-previous"
-                                value="Previous" />
-                        </fieldset> -->
                         <!-- <fieldset>
                             <div class="form-card">
                                 <div class="row">
@@ -997,11 +981,11 @@
     <script type='text/javascript' src='<?php constant('quizUrl'); ?>assets/js/bootstrap.bundle.min.js'></script>
     
     <script type='text/Javascript'>
+    
     $(document).ready(function(){
         //slider A
         var sliderA = document.getElementById("exercise_intensity");
             sliderA.oninput = function() {
-             //console.log(this.value)
             let sliderVal = this.value;
             if(sliderVal<40 && sliderVal>=25){
                 $('.exercise_intensity_light').addClass('text-muted');
@@ -1032,7 +1016,6 @@
         //slider B
         var sliderB = document.getElementById("perspiration_level");
             sliderB.oninput = function() {
-            // console.log(this.value)
             let sliderVal = this.value;
             if(sliderVal<40){
                 $('.perspiration_level_light').removeClass('text-muted');
@@ -1055,7 +1038,7 @@
             }
         }
 
-
+//fieldset code
 var current_fs, next_fs, previous_fs; //fieldsets
 var opacity;
 var current = 1;
@@ -1065,13 +1048,194 @@ $('.total-field').text(steps)
 setProgressBar(current);
 
 $(".next").click(function(){
-
 current_fs = $(this).parent();
 next_fs = $(this).parent().next();
-console.log(next_fs)
-//Add Class Active
-// $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
+//validation - age
+if(current ==2){
+var age  = $('input[name="age"]').is(':checked');
+    if(age ==false){
+        $('#error').text('Please choose age.');
+        return false;
+    }else{
+        $('#error').text('');
+    }
+}
+//validation - product interest
+if(current ==3){
+var pro  = $('input[name="pro_interested"]').is(':checked');
+    if(pro ==false){
+        $('#error').text('Please choose atlest one product.');
+        return false;
+    }else{
+        $('#error').text('');
+    }
+}
+//validation - weight OR height
+if(current ==4){
+var weight  = $('input[name="weight"]').val().trim();
+var height_ft = $('input[name="height_ft"]').val().trim();
+var height_in = $('input[name="height_in"]').val().trim();
+    if(weight ==""){
+        $('#error').text('Please enter weight.');
+        return false;
+    }else if(height_ft =="" || height_in ==""){
+        $('#error').text('Please enter height.');
+        return false;
+    }else{
+        $('#error').text('');
+    }
+    if(weight !=""){
+        if($.isNumeric(weight) ==false){
+        $('#error').text('Please enter weight in numeric.');
+        return false;
+        }
+    }
+    if(height_ft !="" || height_in !=""){
+        if($.isNumeric(height_ft) ==false){
+        $('#error').text('Please enter height in numeric.');
+        return false;
+        }else if($.isNumeric(height_in) ==false){
+        $('#error').text('Please enter height in numeric.');
+        return false;
+        }
+    }
+}
+//validation - average sleep
+if(current ==5){
+    var sleepVal = $('#sleep_select').val();
+    if(sleepVal ==""){
+        $('#error').text('Please select average sleep.');
+        return false;
+    }else{
+        $('#error').text('');
+    }
+}
+//validation - eating pattern
+if(current ==6){
+    var radioCheck = $('input[name="eating_pattern"]').is(':checked');
+     if(radioCheck ==false){
+        $('#error').text('Please choose anyone.');
+        return false;
+     }else{
+        $('#error').text('');
+    }
+}
+//validation - restrictions
+if(current ==7){
+var pro  = $('input[name="dietary"]').is(':checked');
+    if(pro ==false){
+        $('#error').text('Please choose atlest one.');
+        return false;
+    }else{
+        $('#error').text('');
+    }
+}
+//validation - servings of fruit
+if(current ==8){
+    var radioCheck = $('input[name="servings_fruit"]').is(':checked');
+     if(radioCheck ==false){
+        $('#error').text('Please choose anyone.');
+        return false;
+     }else{
+        $('#error').text('');
+    }
+}
+//validation - servings of vegetables
+if(current ==9){
+    var radioCheck = $('input[name="servings_vegi"]').is(':checked');
+     if(radioCheck ==false){
+        $('#error').text('Please choose anyone.');
+        return false;
+     }else{
+        $('#error').text('');
+    }
+}
+//validation - servings of whole
+if(current ==10){
+    var radioCheck = $('input[name="servings_grain"]').is(':checked');
+     if(radioCheck ==false){
+        $('#error').text('Please choose anyone.');
+        return false;
+     }else{
+        $('#error').text('');
+    }
+}
+//validation - protein powder
+if(current ==11){
+    var radioCheck = $('input[name="protien_powder"]').is(':checked');
+     if(radioCheck ==false){
+        $('#error').text('Please choose anyone.');
+        return false;
+     }else{
+        $('#error').text('');
+    }
+}
+//validation - nutrition goals
+if(current ==12){
+    var radioCheck = $('input[name="nutrition_goals"]').is(':checked');
+     if(radioCheck ==false){
+        $('#error').text('Please choose atlest one.');
+        return false;
+     }else{
+        $('#error').text('');
+    }
+}
+//validation - goal weight
+if(current ==13){
+var weight  = $('input[name="goal_weight"]').val().trim();
+    if(weight ==""){
+        $('#error').text('Please enter weight.');
+        return false;
+    }else{
+        $('#error').text('');
+    }
+    if(weight !=""){
+        if($.isNumeric(weight) ==false){
+        $('#error').text('Please enter weight in numeric.');
+        return false;
+        }
+    }
+}
+//validation - typically exercise
+if(current ==14){
+    var radioCheck = $('input[name="exercise_time"]').is(':checked');
+     if(radioCheck ==false){
+        $('#error').text('Please choose anyone.');
+        return false;
+     }else{
+        $('#error').text('');
+    }
+}
+//validation - exercise or training
+if(current ==15){
+    var radioCheck = $('input[name="primary_exercise"]').is(':checked');
+     if(radioCheck ==false){
+        $('#error').text('Please choose atlest one.');
+        return false;
+     }else{
+        $('#error').text('');
+    }
+}
+//validation - exercise frequency
+if(current ==16){
+    var sleepVal = $('#exercise_perweek').val();
+    if(sleepVal ==""){
+        $('#error').text('Please select anyone.');
+        return false;
+    }else{
+        $('#error').text('');
+    }
+}
+//validation - hear about OZ Protien
+if(current ==19){
+    var sleepVal = $('#hear_about').val();
+    if(sleepVal ==""){
+        $('#error').text('Please select anyone.');
+        return false;
+    }else{
+        $('#error').text('');
+    }
+}
 //show the next fieldset
 next_fs.show();
 //hide the current fieldset with style
@@ -1092,13 +1256,9 @@ setProgressBar(++current);
 });
 
 $(".previous").click(function(){
-
 current_fs = $(this).parent();
 previous_fs = $(this).parent().prev();
-console.log(current_fs)
-//Remove class active
-// $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-
+$('#error').text('');
 //show the previous fieldset
 previous_fs.show();
 
@@ -1153,7 +1313,7 @@ if(curStep>=20){
     }
 }
 
-$(".submit").click(function(){
+$("#submit").click(function(){
 return false;
 })
 
