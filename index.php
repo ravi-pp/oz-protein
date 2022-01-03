@@ -19,7 +19,7 @@
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                 <div class="card px-3 pt-1 pb-0 mt-3 mb-3">
                     <!-- <h2 id="heading">OZ Protein Quiz</h2> -->
-                    <span style="text-align:right;"><a href="#" title="Home" style="color:#252525;"><i class="fa fa-times"></i> </a></span>
+                    <span style="text-align:right;"><a href="<?php echo constant('quizUrl'); ?>" title="Home" style="color:#252525;"><i class="fa fa-times"></i> </a></span>
                    <div class="col-md-12 logo_div">
                    <img src="assets/img/logo.png" alt="logo" style="height:145px;width:243px;">
                    </div>
@@ -56,7 +56,7 @@
                                  </div>
                                 <div class="col-md-4 ">
                                     <label class="labl">
-                                        <input type="radio" name="gender" value="m" checked="checked"/>
+                                        <input type="radio" name="gender" value="m" />
                                         <div class="text-center">Male</div>
                                     </label>
                                     </div>
@@ -106,8 +106,8 @@
                                     </div>
                                     <div class="col-md-4">
                                     <label class="labl">
-                                        <input type="radio" name="age" value="24-34" />
-                                        <div class="text-center">24-34</div>
+                                        <input type="radio" name="age" value="35-49" />
+                                        <div class="text-center">35-49</div>
                                     </label>
                                     </div>
                                     <div class="col-md-12">
@@ -946,33 +946,35 @@
                                     class="fieldlabels">Email: *</label> <input type="text" name="email"
                                     placeholder="Email" /> <label class="fieldlabels">Contact No.:
                                     *</label> <input type="text" name="phno" placeholder="Contact No." />
-                            </div> <input type="button" name="Submit" class="next1 action-button" id="submit" value="Submit" /> <input
-                                type="button" name="previous" class="previous action-button-previous"
-                                value="Previous" />
+                            </div> <input type="button" name="Submit" class="next action-button" id="submit1" value="Submit" /> 
+                            <!-- <input type="button" name="previous" class="previous action-button-previous"
+                                value="Previous" /> -->
                         </fieldset>
                         <!-- end 20 fieldset -->
-                        <!-- <fieldset>
+                        <!-- last 21 fieldset -->
+                        <fieldset>
                             <div class="form-card">
                                 <div class="row">
                                     <div class="col-7">
                                         <h2 class="fs-title">Finish:</h2>
                                     </div>
                                     <div class="col-5">
-                                        <h2 class="steps">Step 4 - 4</h2>
+                                    <h2 class="steps">Step <span class="current-count"></span> - <span class="total-field"></span></h2>
                                     </div>
                                 </div> <br><br>
                                 <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
                                 <div class="row justify-content-center">
-                                    <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image">
+                                    <div class="col-3"> <img src="assets/img/tick.png" class="fit-image">
                                     </div>
                                 </div> <br><br>
                                 <div class="row justify-content-center">
                                     <div class="col-7 text-center">
-                                        <h5 class="purple-text text-center">You Have Successfully Signed Up</h5>
+                                        <h5 class="purple-text text-center">You Have Successfully submited, Checked your registered emaild id for products details</h5>
                                     </div>
                                 </div>
                             </div>
-                        </fieldset> -->
+                        </fieldset>
+                        <!-- end 21 fieldset -->
                     </form>
                 </div>
             </div>
@@ -981,7 +983,6 @@
     <script type='text/javascript' src='<?php constant('quizUrl'); ?>assets/js/bootstrap.bundle.min.js'></script>
     
     <script type='text/Javascript'>
-    
     $(document).ready(function(){
         //slider A
         var sliderA = document.getElementById("exercise_intensity");
@@ -1050,23 +1051,43 @@ setProgressBar(current);
 $(".next").click(function(){
 current_fs = $(this).parent();
 next_fs = $(this).parent().next();
+//validation - gender
+if(current ==1){
+var gender  = $('input[name="gender"]').is(':checked');
+var genderVal = $('input[name="gender"]:checked').val();
+    if(gender ==false){
+        $('#error').text('Please choose gender.');
+        return false;
+    }else{
+        fieldUpdate('gender',genderVal);
+        $('#error').text('');
+    }
+}
 //validation - age
 if(current ==2){
-var age  = $('input[name="age"]').is(':checked');
+let age  = $('input[name="age"]').is(':checked');
+let ageVal = $('input[name="age"]:checked').val();
     if(age ==false){
         $('#error').text('Please choose age.');
         return false;
     }else{
+        fieldUpdate('age',ageVal)
         $('#error').text('');
     }
 }
 //validation - product interest
 if(current ==3){
 var pro  = $('input[name="pro_interested"]').is(':checked');
+var proVal = [];
+$('input[name="pro_interested"]:checked').each(function(){
+   proVal.push($(this).val());
+});
+var join = proVal.join(',');
     if(pro ==false){
         $('#error').text('Please choose atlest one product.');
         return false;
     }else{
+        fieldUpdate('pro_interested',join);
         $('#error').text('');
     }
 }
@@ -1089,6 +1110,7 @@ var height_in = $('input[name="height_in"]').val().trim();
         $('#error').text('Please enter weight in numeric.');
         return false;
         }
+        fieldUpdate('weight',weight);
     }
     if(height_ft !="" || height_in !=""){
         if($.isNumeric(height_ft) ==false){
@@ -1097,6 +1119,9 @@ var height_in = $('input[name="height_in"]').val().trim();
         }else if($.isNumeric(height_in) ==false){
         $('#error').text('Please enter height in numeric.');
         return false;
+        }else{
+            fieldUpdate('height_ft',height_ft);
+            fieldUpdate('height_in',height_in);
         }
     }
 }
@@ -1107,76 +1132,99 @@ if(current ==5){
         $('#error').text('Please select average sleep.');
         return false;
     }else{
+        fieldUpdate('sleep',sleepVal);
         $('#error').text('');
     }
 }
 //validation - eating pattern
 if(current ==6){
     var radioCheck = $('input[name="eating_pattern"]').is(':checked');
+    var eatingVal = $('input[name="eating_pattern"]:checked').val();
      if(radioCheck ==false){
         $('#error').text('Please choose anyone.');
         return false;
      }else{
+        fieldUpdate('eating_pattern',eatingVal);
         $('#error').text('');
     }
 }
 //validation - restrictions
 if(current ==7){
 var pro  = $('input[name="dietary"]').is(':checked');
+var proVal = [];
+$('input[name="dietary"]:checked').each(function(){
+   proVal.push($(this).val());
+});
+var join = proVal.join(',');
     if(pro ==false){
         $('#error').text('Please choose atlest one.');
         return false;
     }else{
+        fieldUpdate('dietary',join);
         $('#error').text('');
     }
 }
 //validation - servings of fruit
 if(current ==8){
     var radioCheck = $('input[name="servings_fruit"]').is(':checked');
+    var fruitVal = $('input[name="servings_fruit"]:checked').val();
      if(radioCheck ==false){
         $('#error').text('Please choose anyone.');
         return false;
      }else{
+        fieldUpdate('servings_fruit',fruitVal);
         $('#error').text('');
     }
 }
 //validation - servings of vegetables
 if(current ==9){
     var radioCheck = $('input[name="servings_vegi"]').is(':checked');
+    var vegetablesVal = $('input[name="servings_vegi"]:checked').val();
      if(radioCheck ==false){
         $('#error').text('Please choose anyone.');
         return false;
      }else{
+        fieldUpdate('servings_vegi',vegetablesVal);
         $('#error').text('');
     }
 }
 //validation - servings of whole
 if(current ==10){
     var radioCheck = $('input[name="servings_grain"]').is(':checked');
+    var grainVal = $('input[name="servings_grain"]:checked').val();
      if(radioCheck ==false){
         $('#error').text('Please choose anyone.');
         return false;
      }else{
+        fieldUpdate('servings_grain',grainVal);
         $('#error').text('');
     }
 }
 //validation - protein powder
 if(current ==11){
     var radioCheck = $('input[name="protien_powder"]').is(':checked');
+    var proteinVal = $('input[name="protien_powder"]:checked').val();
      if(radioCheck ==false){
         $('#error').text('Please choose anyone.');
         return false;
      }else{
+        fieldUpdate('protien_powder',proteinVal);
         $('#error').text('');
     }
 }
 //validation - nutrition goals
 if(current ==12){
     var radioCheck = $('input[name="nutrition_goals"]').is(':checked');
+    var proVal = [];
+    $('input[name="nutrition_goals"]:checked').each(function(){
+    proVal.push($(this).val());
+    });
+    var join = proVal.join(',');
      if(radioCheck ==false){
         $('#error').text('Please choose atlest one.');
         return false;
      }else{
+        fieldUpdate('nutrition_goals',join);
         $('#error').text('');
     }
 }
@@ -1193,48 +1241,100 @@ var weight  = $('input[name="goal_weight"]').val().trim();
         if($.isNumeric(weight) ==false){
         $('#error').text('Please enter weight in numeric.');
         return false;
+        }else{
+            fieldUpdate('goal_weight',weight);
         }
     }
 }
 //validation - typically exercise
 if(current ==14){
     var radioCheck = $('input[name="exercise_time"]').is(':checked');
+    var exerciseVal = $('input[name="exercise_time"]:checked').val();
      if(radioCheck ==false){
         $('#error').text('Please choose anyone.');
         return false;
      }else{
+        fieldUpdate('exercise_time',exerciseVal);
         $('#error').text('');
     }
 }
 //validation - exercise or training
 if(current ==15){
     var radioCheck = $('input[name="primary_exercise"]').is(':checked');
+    var primaryVal = $('input[name="primary_exercise"]:checked').val();
      if(radioCheck ==false){
         $('#error').text('Please choose atlest one.');
         return false;
      }else{
+        fieldUpdate('primary_exercise',primaryVal);
         $('#error').text('');
     }
 }
 //validation - exercise frequency
 if(current ==16){
-    var sleepVal = $('#exercise_perweek').val();
-    if(sleepVal ==""){
+    var frequency = $('#exercise_perweek').val();
+    if(frequency ==""){
         $('#error').text('Please select anyone.');
         return false;
     }else{
+        fieldUpdate('exercise_perweek',frequency);
         $('#error').text('');
     }
 }
 //validation - hear about OZ Protien
 if(current ==19){
-    var sleepVal = $('#hear_about').val();
-    if(sleepVal ==""){
+    var hearVal = $('#hear_about').val();
+    if(hearVal ==""){
         $('#error').text('Please select anyone.');
+        return false;
+    }else{
+        fieldUpdate('hear_about',hearVal);
+        $('#error').text('');
+    }
+}
+//validation - Submit
+if(current ==20){
+    var perspirationVal = $('input[name="perspiration_level"]').val();
+    var exerciseVal = $('input[name="exercise_intensity"]').val();
+    var fullName = $('input[name="fname"]').val();
+    var email = $('input[name="email"]').val();
+    var phno = $('input[name="phno"]').val();
+    if(fullName ==""){
+        $('#error').text('Please enter full name');
+        return false;
+    }else if(email ==""){
+        $('#error').text('Please enter email id');
+        return false;
+    }else if(phno ==""){
+        $('#error').text('Please enter contact no.');
         return false;
     }else{
         $('#error').text('');
     }
+    if(isEmail(email) ==false){
+        $('#error').text('Please enter valid email id');
+        return false;
+    }else{
+        $('#error').text('');
+    }
+    if($.isNumeric(phno) ==false){
+        $('#error').text('Please enter valid contact no.');
+        return false;
+    }else{
+        $('#error').text('');
+    }
+
+    $.ajax({
+        type:'POST',
+        data:{'type':'submit','perspiration_level':perspirationVal,'exercise_intensity':exerciseVal,'fname':fullName,'email':email,'phno':phno},
+        url: 'ajax.php',
+        success:function(res){
+            $('#error').text('');
+            console.log(res)
+        }
+    });
+
+
 }
 //show the next fieldset
 next_fs.show();
@@ -1308,16 +1408,29 @@ if(curStep>=20){
     }else if(curStep>=14 &&  curStep<=19){
         $("#progressbar li").eq(3).addClass("active");
         $("#progressbar li").eq(4).removeClass("active");
-    }else if(curStep>=20){
+    }else if(curStep>=21){
         $("#progressbar li").eq(4).addClass("active");
     }
 }
 
-$("#submit").click(function(){
-return false;
-})
-
-});</script>
+});
+//field update 
+function fieldUpdate(fieldName,fieldValue){
+    $.ajax({
+        type:'POST',
+        data:{'type':'field_update','fieldname':fieldName,'fieldvalue':fieldValue},
+        url: 'ajax.php',
+        success:function(res){
+            console.log(res)
+        }
+    });
+}
+//email validation
+function isEmail(email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
+}
+</script>
 </body>
 
 </html>
