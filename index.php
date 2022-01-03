@@ -10,9 +10,6 @@
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
     <script type='text/javascript' src='<?php constant('quizUrl'); ?>assets/js/jquery.min.js'></script>
 </head>
-<style>
-
-</style>
 <body oncontextmenu='return true' class='snippet-body'>
     <div class="container-fluid">
         <div class="row justify-content-center">

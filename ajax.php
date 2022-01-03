@@ -59,7 +59,6 @@ if(isset($_POST) && $_POST['type'] =='submit'){
         $date = date('Y-m-d H:i:s');
         $up = mysqli_query($connect,"UPDATE `tbl_registers` SET `exercise_intensity`='$exercise_intensity',`perspiration_level`='$perspiration_level',`name`='$fname',`email`='$email',`phone`='$phone',`updated_at`='$date' WHERE `token_id`='$token'");
         if(mysqli_affected_rows($connect)){
-            setcookie('quizToken',null,-1,'/');
             //mail
             $to = $email;
             $subject = "OZ Protein";
@@ -88,13 +87,14 @@ if(isset($_POST) && $_POST['type'] =='submit'){
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
             // More headers
-            $headers .= 'From: <webmaster@example.com>' . "\r\n";
+            $headers .= 'From: OZ Protein <ozprotein@example.com>' . "\r\n";
             // $headers .= 'Cc: te@example.com' . "\r\n";
             $mail = mail($to,$subject,$message,$headers);
             if($mail){
-              mysqli_query($connect,"UPDATE `tbl_registers` SET `email_sent`='1' WHERE `token_id`='$token'");
+              mysqli_query($connect,"UPDATE `tbl_registers` SET `email_send`='1' WHERE `token_id`='$token'");
             }
             mysqli_close($connect);
+            setcookie('quizToken',null,-1,'/');
            echo 'updated';
         }else{
             echo 'not updated';
