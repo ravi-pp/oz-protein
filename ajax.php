@@ -61,7 +61,7 @@ if(isset($_POST) && $_POST['type'] =='submit'){
         if(mysqli_affected_rows($connect)){
             //mail
             $to = $email;
-            $subject = "OZ Protein";
+            $subject = "OZ Protein Survey";
 
             $message = "
             <html><head>
