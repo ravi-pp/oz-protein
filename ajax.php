@@ -61,24 +61,17 @@ if(isset($_POST) && $_POST['type'] =='submit'){
         if(mysqli_affected_rows($connect)){
             //mail
             $to = $email;
-            $subject = "OZ Protein Survey";
+            $subject = "Thank you for taking our quiz, ".explode(' ',$fname)[0];
 
             $message = "
             <html><head>
             <title>HTML email</title>
             </head>
             <body>
-            <p>Here is your product</p>
-            <table>
-            <tr>
-            <th>test</th>
-            <th>test1</th>
-            </tr>
-            <tr>
-            <td>ABC</td>
-            <td>XYZ</td>
-            </tr>
-            </table>
+            <p>Hi,".explode(' ',$fname)[0]."</p>
+            <p>We used your responses to formulate a Personalized Nutrition System informed by science.</p>
+            <p>Here's what our Registered Dietitians recommend adding to your daily regimen to support performance, expedite recovery + help you reach your individual fitness goals.</p>
+            <p>products url</p>
             </body>
             </html>
             ";

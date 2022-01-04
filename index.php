@@ -1,4 +1,13 @@
-<?php include('config.php'); ?>
+<?php include('db.php');
+      if(isset($_COOKIE['quizToken']) && !empty($_COOKIE['quizToken'])){
+        $token = $_COOKIE['quizToken'];
+        $cookie_query = mysqli_query($connect,"SELECT * FROM `tbl_registers` WHERE `token_id`='$token'");
+        $cookie_result = mysqli_fetch_assoc($cookie_query);
+    }
+    if(isset($cookie_result) && !empty($cookie_result)){
+   // print_r($cookie_result);
+    }
+?>
 <!doctype html>
 <html>
 <head>
@@ -56,19 +65,19 @@
                                  </div>
                                 <div class="col-md-4 ">
                                     <label class="labl">
-                                        <input type="radio" name="gender" value="m" />
+                                        <input type="radio" name="gender" value="m" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['gender'] =='m'){echo 'checked';}} ?>/>
                                         <div class="text-center">Male</div>
                                     </label>
                                     </div>
                                     <div class="col-md-4">
                                     <label class="labl">
-                                        <input type="radio" name="gender" value="f" />
+                                        <input type="radio" name="gender" value="f" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['gender'] =='f'){echo 'checked';}} ?>/>
                                         <div class="text-center">Female</div>
                                     </label>
                                     </div>
                                     <div class="col-md-4">
                                     <label class="labl">
-                                        <input type="radio" name="gender" value="o" />
+                                        <input type="radio" name="gender" value="o" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['gender'] =='o'){echo 'checked';}} ?>/>
                                         <div class="text-center">Non-Binary</div>
                                     </label>
                                     </div>
@@ -203,7 +212,7 @@
                                  <div class="col-md-12 row">
                                 <div class="col-md-8 mx-auto">
                                     <label for="weight">Weight</label>
-                                        <input type="text" name="weight" placeholder="LBS" value="" class="form-control"/>
+                                        <input type="text" name="weight" placeholder="KG" value="" class="form-control"/>
                                     </div>
                                     </div>
                                     <div class="col-md-12 row">
@@ -650,7 +659,7 @@
                                  <div class="col-md-12">
                                 <div class="col-md-7 mx-auto">
                                     <label for="goal_weight" class="text-left">Goal Weight</label>
-                                     <input type="text" name="goal_weight" placeholder="LBS" value=""class="form-control" >
+                                     <input type="text" name="goal_weight" placeholder="KG" value=""class="form-control" >
                                     </div>
                                     </div>
                                </div>
@@ -969,7 +978,7 @@
                                 </div> <br><br>
                                 <div class="row justify-content-center">
                                     <div class="col-7 text-center">
-                                        <h5 class="purple-text text-center">You Have Successfully submited, Checked your registered emaild id for products details</h5>
+                                        <h5 class="purple-text text-center">Thank you for taking the survey, please check your e-mail for the result.</h5>
                                     </div>
                                 </div>
                             </div>
