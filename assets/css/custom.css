@@ -24,7 +24,7 @@ p {
 }
 body{
     background: url(../img/bg2.jpg);
-    background-position: top;
+    background-position: center;
     background-size: cover;
     background-attachment: fixed;
 }

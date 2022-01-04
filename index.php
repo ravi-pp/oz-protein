@@ -1,11 +1,14 @@
-<?php include('db.php');
+<?php include('config.php');
+      include('db.php');
       if(isset($_COOKIE['quizToken']) && !empty($_COOKIE['quizToken'])){
         $token = $_COOKIE['quizToken'];
         $cookie_query = mysqli_query($connect,"SELECT * FROM `tbl_registers` WHERE `token_id`='$token'");
         $cookie_result = mysqli_fetch_assoc($cookie_query);
+        mysqli_close($connect);
     }
     if(isset($cookie_result) && !empty($cookie_result)){
-   // print_r($cookie_result);
+   //print_r($cookie_result);
+
     }
 ?>
 <!doctype html>
@@ -25,7 +28,7 @@
 <body oncontextmenu='return true' class='snippet-body'>
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+            <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2" style="opacity:0.9;">
                 <div class="card px-3 pt-1 pb-0 mt-3 mb-3">
                     <!-- <h2 id="heading">OZ Protein Quiz</h2> -->
                     <span style="text-align:right;"><a href="<?php echo constant('quizUrl'); ?>" title="Home" style="color:#252525;"><i class="fa fa-times"></i> </a></span>
@@ -63,24 +66,14 @@
                                     <div class="col-md-12 mb-4">
                                  <h3 class="text-center mt-2">How do you identify?</h3>
                                  </div>
+                                 <?php foreach($gender_arr as $gkey=>$gval){ ?>
                                 <div class="col-md-4 ">
                                     <label class="labl">
-                                        <input type="radio" name="gender" value="m" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['gender'] =='m'){echo 'checked';}} ?>/>
-                                        <div class="text-center">Male</div>
+                                        <input type="radio" name="gender" value="<?php echo $gkey;?>" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['gender'] ==$gkey){echo 'checked';}} ?>/>
+                                        <div class="text-center"><?php echo $gval;?></div>
                                     </label>
                                     </div>
-                                    <div class="col-md-4">
-                                    <label class="labl">
-                                        <input type="radio" name="gender" value="f" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['gender'] =='f'){echo 'checked';}} ?>/>
-                                        <div class="text-center">Female</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-4">
-                                    <label class="labl">
-                                        <input type="radio" name="gender" value="o" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['gender'] =='o'){echo 'checked';}} ?>/>
-                                        <div class="text-center">Non-Binary</div>
-                                    </label>
-                                    </div>
+                                    <?php } ?>
                                </div>
                             </div> <!-- end form card -->
                             <input type="button" name="next" class="next action-button" value="Next" />
@@ -101,30 +94,23 @@
                                     <div class="col-md-12 mb-4">
                                  <h3 class="text-center mt-2">How old are you?</h3>
                                  </div>
-                                <div class="col-md-4 ">
-                                    <label class="labl">
-                                        <input type="radio" name="age" value="18-23"/>
-                                        <div class="text-center">18-23</div>
-                                    </label>
-                                    </div>
+                                   <?php $a=0;foreach($age_arr as $agekey=>$ageval){ ?>
+                                    <?php if($a<3){ ?>
                                     <div class="col-md-4">
                                     <label class="labl">
-                                        <input type="radio" name="age" value="24-34"/>
-                                        <div class="text-center">24-34</div>
+                                        <input type="radio" name="age" value="<?php echo $agekey; ?>" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['age'] == $agekey){echo 'checked';}} ?>/>
+                                        <div class="text-center"><?php echo $ageval; ?></div>
                                     </label>
                                     </div>
-                                    <div class="col-md-4">
-                                    <label class="labl">
-                                        <input type="radio" name="age" value="35-49" />
-                                        <div class="text-center">35-49</div>
-                                    </label>
-                                    </div>
+                                    <?php }  if($a==3){ ?>
                                     <div class="col-md-12">
-                                    <label class="labl">
-                                        <input type="radio" name="age" value="50" />
-                                        <div class="text-center">50 or Above</div>
-                                    </label>
+                                        <label class="labl">
+                                            <input type="radio" name="age" value="<?php echo $agekey; ?>" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['age'] == $agekey){echo 'checked';}} ?>/>
+                                            <div class="text-center"><?php echo $ageval; ?></div>
+                                        </label>
                                     </div>
+                                    <?php }?>
+                                   <?php $a++;}?>
                                </div>
                             </div> <!-- end form card -->
                             <input type="button" name="next" class="next action-button" value="Next" />
@@ -146,48 +132,23 @@
                                     <div class="col-md-12 mb-4">
                                  <h3 class="text-center mt-2">Which Gainful products are you interested in?</h3>
                                  </div>
-                                <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="checkbox" name="pro_interested" value="Personalized Protein Powder"/>
-                                        <div class="text-center">Personalized Protein Powder</div>
-                                    </label>
-                                    </div>
+                                 <?php $a=0;foreach($pro_interested as $prokey=>$proval){ ?>
+                                    <?php if($a<=5){ ?>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="checkbox" name="pro_interested" value="Personalized Hydration" />
-                                        <div class="text-center">Personalized Hydration</div>
+                                        <input type="checkbox" name="pro_interested" value="<?php echo $prokey; ?>"/>
+                                        <div class="text-center"><?php echo $proval; ?></div>
                                     </label>
                                     </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="checkbox" name="pro_interested" value="Personalized Pre-Workout" />
-                                        <div class="text-center">Personalized Pre-Workout</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="checkbox" name="pro_interested" value="Creatine Performance Boost" />
-                                        <div class="text-center">Creatine Performance Boost</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="checkbox" name="pro_interested" value="Collagen Performance Boost" />
-                                        <div class="text-center">Collagen Performance Boost</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="checkbox" name="pro_interested" value="Fiber Performance Boost" />
-                                        <div class="text-center">Fiber Performance Boost</div>
-                                    </label>
-                                    </div>
+                                    <?php }  if($a==6){ ?>
                                     <div class="col-md-12">
-                                    <label class="labl">
-                                        <input type="checkbox" name="pro_interested" value="All of the above" />
-                                        <div class="text-center">All of the above</div>
-                                    </label>
+                                        <label class="labl">
+                                        <input type="checkbox" name="pro_interested" value="<?php echo $prokey; ?>"/>
+                                            <div class="text-center"><?php echo $proval; ?></div>
+                                        </label>
                                     </div>
+                                    <?php }?>
+                                   <?php $a++;}?>
                                </div>
                             </div> <!-- end form card -->
                             <input type="button" name="next" class="next action-button" value="Next" />
@@ -212,17 +173,17 @@
                                  <div class="col-md-12 row">
                                 <div class="col-md-8 mx-auto">
                                     <label for="weight">Weight</label>
-                                        <input type="text" name="weight" placeholder="KG" value="" class="form-control"/>
+                                        <input type="text" name="weight" placeholder="KG" value="<?php if(isset($cookie_result) && !empty($cookie_result)){echo $cookie_result['weight'];} ?>" class="form-control"/>
                                     </div>
                                     </div>
                                     <div class="col-md-12 row">
                                     <div class="col-md-4 mx-auto">
                                     <label for="height_ft">Height</label>
-                                        <input type="text" name="height_ft" placeholder="FT" value="" class="form-control"/>
+                                        <input type="text" name="height_ft" placeholder="FT" value="<?php if(isset($cookie_result) && !empty($cookie_result)){echo $cookie_result['height_ft'];} ?>" class="form-control"/>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mt-3">
                                     <label for="height_in"></label>
-                                        <input type="text" name="height_in" placeholder="IN" value="" class="form-control mt-2"/>
+                                        <input type="text" name="height_in" placeholder="IN" value="<?php if(isset($cookie_result) && !empty($cookie_result)){echo $cookie_result['height_in'];} ?>" class="form-control mt-2"/>
                                     </div>
                                     </div>
                                </div>
@@ -251,13 +212,9 @@
                                     <label for="sleep" class="text-left">Average hours of sleep</label>
                                      <select name="sleep" id="sleep_select" class="form-control">
                                      <option value="">Select one</option>
-                                            <option value="4">4 or less </option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10 or more</option>
+                                            <?php foreach($sleep_avg as $skey=>$sval){ ?>
+                                                <option value="<?php echo $skey; ?>" <?php if(isset($cookie_result) && !empty($cookie_result)){if($skey == $cookie_result['sleep']){echo 'selected';}} ?>><?php echo $sval; ?></option>
+                                            <?php } ?>
                                      </select>
                                     </div>
                                     </div>
@@ -282,43 +239,29 @@
                                     <div class="col-md-12 mb-4">
                                  <h3 class="text-center mt-2">What describes your typical eating pattern?</h3>
                                  </div>
-                                <div class="col-md-6 ">
-                                    <label class="labl">
-                                    <input type="radio" name="eating_pattern" value="3" />
-                                        <div class="text-center">3 meals + a few snacks per day</div>
-                                    </label>
-                                    </div>
+                                 <?php $a=0;foreach($eating_pattern as $eatkey=>$eatval){ ?>
+                                    <?php if($a<=3){ ?>
                                     <div class="col-md-6">
                                     <label class="labl">
-                                        <input type="radio" name="eating_pattern" value="4" />
-                                        <div class="text-center">4 or more meals per day</div>
+                                        <input type="radio" name="eating_pattern" value="<?php echo $eatkey; ?>" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['eating_pattern'] == $eatkey){echo 'checked';}} ?>/>
+                                        <div class="text-center"><?php echo $eatval; ?></div>
                                     </label>
                                     </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="eating_pattern" value="snack" />
-                                        <div class="text-center">Snacking throughout the day</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="eating_pattern" value="eat" />
-                                        <div class="text-center">I eat when I think of it / whenever I'm hungry</div>
-                                    </label>
-                                    </div>
+                                    <?php }  if($a==4){ ?>
                                     <div class="col-md-12">
-                                    <label class="labl">
-                                        <input type="radio" name="eating_pattern" value="fasting" />
-                                        <div class="text-center">Periods of fasting between meals</div>
-                                    </label>
+                                        <label class="labl">
+                                        <input type="radio" name="eating_pattern" value="<?php echo $eatkey; ?>" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['eating_pattern'] == $eatkey){echo 'checked';}} ?>/>
+                                            <div class="text-center"><?php echo $eatval; ?></div>
+                                        </label>
                                     </div>
+                                    <?php }?>
+                                   <?php $a++;}?>
                                </div>
                             </div> <!-- end form card -->
                             <input type="button" name="next" class="next action-button" value="Next" />
                             <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         </fieldset>
                         <!-- end 6 fieldset -->
-                        <!-- 868686art -->
                         <!-- 7 fieldset -->
                         <fieldset>
                             <div class="form-card mb-4">
@@ -412,30 +355,14 @@
                                  <div class="col-md-12">
                                      <div class="alert alert-secondary">1 serving of fruit ≈ 1 orange, 1 banana, or 1 cup of raspberries</div>
                                  </div>
-                                <div class="col-md-6 ">
+                                 <?php foreach($servings_fruit as $sf_key=>$sf_val){ ?>
+                                    <div class="col-md-6 ">
                                     <label class="labl">
-                                    <input type="radio" name="servings_fruit" value="0" />
-                                        <div class="text-center">0 servings</div>
+                                    <input type="radio" name="servings_fruit" value="<?php echo $sf_key; ?>" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['servings_fruit'] == $sf_key){echo 'checked';}} ?>/>
+                                        <div class="text-center"><?php echo $sf_val; ?></div>
                                     </label>
                                     </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="servings_fruit" value="1-2" />
-                                        <div class="text-center">1-2 servings</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="servings_fruit" value="3-4" />
-                                        <div class="text-center">3-4 servings</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="servings_fruit" value="5+" />
-                                        <div class="text-center">5+ servings</div>
-                                    </label>
-                                    </div>
+                                <?php } ?>
                                </div>
                             </div> <!-- end form card -->
                             <input type="button" name="next" class="next action-button" value="Next" />
@@ -460,30 +387,14 @@
                                  <div class="col-md-12">
                                      <div class="alert alert-secondary">1 serving of vegetables ≈ 1/2 cup cooked broccoli or 1 cup of raw spinach</div>
                                  </div>
-                                <div class="col-md-6 ">
+                                 <?php foreach($servings_vegi as $sv_key=>$sv_val){ ?>
+                                    <div class="col-md-6 ">
                                     <label class="labl">
-                                    <input type="radio" name="servings_vegi" value="0" />
-                                        <div class="text-center">0 servings</div>
+                                    <input type="radio" name="servings_vegi" value="<?php echo $sv_key; ?>" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['servings_vegi'] == $sv_key){echo 'checked';}} ?>/>
+                                        <div class="text-center"><?php echo $sv_val; ?></div>
                                     </label>
                                     </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="servings_vegi" value="1-2" />
-                                        <div class="text-center">1-2 servings</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="servings_vegi" value="3-4" />
-                                        <div class="text-center">3-4 servings</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="servings_vegi" value="5+" />
-                                        <div class="text-center">5+ servings</div>
-                                    </label>
-                                    </div>
+                                <?php } ?>
                                </div>
                             </div> <!-- end form card -->
                             <input type="button" name="next" class="next action-button" value="Next" />
@@ -508,30 +419,14 @@
                                  <div class="col-md-12">
                                      <div class="alert alert-secondary">1 serving of whole grains ≈ 1 slice whole wheat bread or 1/2 cup cooked brown rice/oats</div>
                                  </div>
-                                <div class="col-md-6 ">
+                                 <?php foreach($servings_grain as $sg_key=>$sg_val){ ?>
+                                    <div class="col-md-6 ">
                                     <label class="labl">
-                                    <input type="radio" name="servings_grain" value="0" />
-                                        <div class="text-center">0 servings</div>
+                                    <input type="radio" name="servings_grain" value="<?php echo $sg_key; ?>" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['servings_grain'] == $sg_key){echo 'checked';}} ?>/>
+                                        <div class="text-center"><?php echo $sg_val; ?></div>
                                     </label>
                                     </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="servings_grain" value="1-2" />
-                                        <div class="text-center">1-2 servings</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="servings_grain" value="3-4" />
-                                        <div class="text-center">3-4 servings</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="servings_grain" value="5+" />
-                                        <div class="text-center">5+ servings</div>
-                                    </label>
-                                    </div>
+                                <?php } ?>
                                </div>
                             </div> <!-- end form card -->
                             <input type="button" name="next" class="next action-button" value="Next" />
@@ -553,24 +448,23 @@
                                     <div class="col-md-12 mb-4">
                                  <h3 class="text-center mt-2">How often do you plan on having protein powder?</h3>
                                  </div>
-                                <div class="col-md-6 ">
+                                 <?php $a=0; foreach($protien_powder as $pp_key=>$pp_val){ ?>
+                                    <?php if($a <2){ ?>
+                                    <div class="col-md-6 ">
                                     <label class="labl">
-                                    <input type="radio" name="protien_powder" value="1-3" />
-                                        <div class="text-center">1-3 times per week</div>
+                                    <input type="radio" name="protien_powder" value="<?php echo $pp_key; ?>" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['protien_powder'] == $pp_key){echo 'checked';}} ?>/>
+                                        <div class="text-center"><?php echo $pp_val; ?></div>
                                     </label>
                                     </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="protien_powder" value="4-6" />
-                                        <div class="text-center">4-6 times per week</div>
-                                    </label>
-                                    </div>
+                                    <?php } if($a ==2){ ?>
                                     <div class="col-md-12">
-                                    <label class="labl">
-                                        <input type="radio" name="protien_powder" value="7" />
-                                        <div class="text-center">Every Day</div>
-                                    </label>
+                                        <label class="labl">
+                                            <input type="radio" name="protien_powder" value="<?php echo $pp_key; ?>" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['protien_powder'] == $pp_key){echo 'checked';}} ?>/>
+                                            <div class="text-center"><?php echo $pp_val; ?></div>
+                                        </label>
                                     </div>
+                                    <?php } ?>
+                                <?php $a++;} ?>
                                </div>
                             </div> <!-- end form card -->
                             <input type="button" name="next" class="next action-button" value="Next" />
@@ -659,7 +553,7 @@
                                  <div class="col-md-12">
                                 <div class="col-md-7 mx-auto">
                                     <label for="goal_weight" class="text-left">Goal Weight</label>
-                                     <input type="text" name="goal_weight" placeholder="KG" value=""class="form-control" >
+                                     <input type="text" name="goal_weight" placeholder="KG" value="<?php if(isset($cookie_result) && !empty($cookie_result)){echo $cookie_result['goal_weight'];} ?>"class="form-control" >
                                     </div>
                                     </div>
                                </div>
@@ -684,42 +578,14 @@
                                     <div class="col-md-12 mb-4">
                                  <h3 class="text-center mt-2">What time of day do you typically exercise?</h3>
                                  </div>
-                                <div class="col-md-6 ">
+                                 <?php $a=0; foreach($exercise_time as $et_key=>$et_val){ ?>
+                                    <div class="col-md-6 ">
                                     <label class="labl">
-                                    <input type="radio" name="exercise_time" value="Early Morning" />
-                                        <div class="text-center">Early Morning</div>
+                                    <input type="radio" name="exercise_time" value="<?php echo $et_key; ?>" <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['exercise_time'] == $et_key){echo 'checked';}} ?>/>
+                                        <div class="text-center"><?php echo $et_val; ?></div>
                                     </label>
                                     </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="exercise_time" value="Late Morning" />
-                                        <div class="text-center">Late Morning</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="exercise_time" value="Midday" />
-                                        <div class="text-center">Midday</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="exercise_time" value="Early Afternoon" />
-                                        <div class="text-center">Early Afternoon</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="exercise_time" value="Late Afternoon" />
-                                        <div class="text-center">Late Afternoon</div>
-                                    </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <label class="labl">
-                                        <input type="radio" name="exercise_time" value="Evening" />
-                                        <div class="text-center">Evening</div>
-                                    </label>
-                                    </div>
+                                 <?php } ?>   
                                </div>
                             </div> <!-- end form card -->
                             <input type="button" name="next" class="next action-button" value="Next" />
@@ -827,11 +693,9 @@
                                     <label for="exercise_perweek" class="text-left">Frequency</label>
                                      <select name="exercise_perweek" id="exercise_perweek" class="form-control">
                                         <option value="" disabled="">Select one</option>
-                                        <option value="1">1 or less</option>
-                                        <option value="2">2 - 3</option>
-                                        <option value="4">4 - 5</option>
-                                        <option value="6">6 - 7</option>
-                                        <option value="8">8 or more</option>
+                                        <?php foreach($exercise_perweek as $ex_key=>$ex_val){?>
+                                            <option value="<?php echo $ex_key; ?>" <?php if(isset($cookie_result) && !empty($cookie_result)){if($ex_key ==$cookie_result['exercise_perweek']){echo 'selected';}} ?>><?php echo $ex_val; ?></option>
+                                        <?php } ?>
                                      </select>
                                     </div>
                                     </div>
@@ -917,20 +781,9 @@
                                     <label for="hear_about" class="text-left">Hear about</label>
                                      <select name="hear_about" id="hear_about" class="form-control">
                                         <option value="">Select one</option>
-                                        <option value="news">News Article</option>
-                                        <option value="instagram">Instagram</option>
-                                        <option value="tv">TV</option>
-                                        <option value="mailer">Mailer</option>
-                                        <option value="friend">From a friend</option>
-                                        <option value="other">Other</option>
-                                        <option value="google">Google</option>
-                                        <option value="podcast">Podcast</option>
-                                        <option value="youtube">YouTube</option>
-                                        <option value="snapchat">Snapchat</option>
-                                        <option value="facebook">Facebook</option>
-                                        <option value="blog">A Blog</option>
-                                        <option value="review-site">Review Site</option>
-                                        <option value="tiktok">TikTok</option>
+                                        <?php foreach($hear_about as $ha_key=>$ha_val){?>
+                                            <option value="<?php echo $ha_key; ?>" <?php if(isset($cookie_result) && !empty($cookie_result)){if($ha_key ==$cookie_result['hear_about']){echo 'selected';}} ?>><?php echo $ha_val; ?></option>
+                                        <?php } ?>
                                      </select>
                                     </div>
                                     </div>
