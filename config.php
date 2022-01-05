@@ -97,5 +97,36 @@ $hear_about = array(
     'review-site' => 'Review Site',
     'tiktok' => 'TikTok',
 );
+$dietary = array(
+    'Gluten-free' => 'Gluten-free',
+    'Lactose-free' => 'Lactose-free',
+    'Soy-free' => 'Soy-free',
+    'Whey-free' => 'Whey-free',
+    'Vegan-plant-based' => 'Vegan / plant-based',
+    'Paleo-diet' => 'Paleo diet',
+    'Ketogenic-diet' => 'Ketogenic diet',
+    'Caffeine-free' => 'Caffeine-free',
+    'None' => 'None'
+);
+$nutrition_goals = array(
+    'Gain-weight' => 'Gain weight',
+    'Increase calorie intake' => 'Increase calorie intake',
+    'Maintain muscle' => 'Maintain muscle',
+    'Recover after workouts' => 'Recover after workouts',
+    'Sports-fitness performance' => 'Sports/fitness performance',
+    'Supplement diet' => 'Supplement diet'
+);
+$primary_exercise = array(
+    'Resistance or weight training' => 'Resistance or weight training',
+    'Running' => 'Running',
+    'Cycling' => 'Cycling',
+    'Yoga or pilates' => 'Yoga or pilates',
+    'Dance or aerobics' => 'Dance or aerobics',
+    'Swimming' => 'Swimming',
+    'Team sports' => 'Team sports',
+    'Individual sports' => 'Individual sports',
+    'Active lifestyle' => 'Active lifestyle',
+    'Other' => 'Other'
+);
 
 ?>

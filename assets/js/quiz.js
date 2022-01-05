@@ -276,12 +276,19 @@ var exerciseVal = $('input[name="exercise_time"]:checked').val();
 //validation - exercise or training
 if(current ==15){
 var radioCheck = $('input[name="primary_exercise"]').is(':checked');
-var primaryVal = $('input[name="primary_exercise"]:checked').val();
+var priVal = [];
+$('input[name="primary_exercise"]:checked').each(function(){
+    priVal.push($(this).val());
+    });
+    var join = priVal.join(',');
  if(radioCheck ==false){
     $('#error').text('Please choose atlest one.');
     return false;
+ }else if($('input[name="primary_exercise"]:checked').length >2){
+    $('#error').text('Please do not choose more than two option.');
+    return false;
  }else{
-    fieldUpdate('primary_exercise',primaryVal);
+    fieldUpdate('primary_exercise',join);
     $('#error').text('');
 }
 }

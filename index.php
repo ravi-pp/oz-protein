@@ -7,8 +7,10 @@
         mysqli_close($connect);
     }
     if(isset($cookie_result) && !empty($cookie_result)){
-   //print_r($cookie_result);
-
+    $pro_selected = explode(',',$cookie_result['pro_interested']);
+    $dietary_selected = explode(',',$cookie_result['dietary']);
+    $nutrition_selected = explode(',',$cookie_result['nutrition_goals']);
+    $primary_selected = explode(',',$cookie_result['primary_exercise']);
     }
 ?>
 <!doctype html>
@@ -77,7 +79,7 @@
                                     <div class="col-md-4 ">
                                         <label class="labl">
                                             <input type="radio" name="gender" value="<?php echo $gkey;?>"
-                                                <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['gender'] ==$gkey){echo 'checked';}} ?> />
+                                                <?php if(isset($cookie_result) && !empty($cookie_result)){if($cookie_result['gender'] ==$gkey){echo 'checked';}}else if($gkey =='m'){echo 'checked';} ?> />
                                             <div class="text-center"><?php echo $gval;?></div>
                                         </label>
                                     </div>
@@ -143,14 +145,14 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 mb-4">
-                                        <h3 class="text-center mt-2">Which Gainful products are you interested in?</h3>
+                                        <h3 class="text-center mt-2">Which OZ products are you interested in?</h3>
                                     </div>
                                     <?php $a=0;foreach($pro_interested as $prokey=>$proval){ ?>
                                     <?php if($a<=5){ ?>
                                     <div class="col-md-6">
                                         <label class="labl">
                                             <input type="checkbox" name="pro_interested"
-                                                value="<?php echo $prokey; ?>" />
+                                                value="<?php echo $prokey; ?>" <?php if(in_array($prokey,$pro_selected,true)){echo 'checked';} ?>/>
                                             <div class="text-center"><?php echo $proval; ?></div>
                                         </label>
                                     </div>
@@ -158,7 +160,7 @@
                                     <div class="col-md-12">
                                         <label class="labl">
                                             <input type="checkbox" name="pro_interested"
-                                                value="<?php echo $prokey; ?>" />
+                                                value="<?php echo $prokey; ?>" <?php if(in_array($prokey,$pro_selected,true)){echo 'checked';} ?>/>
                                             <div class="text-center"><?php echo $proval; ?></div>
                                         </label>
                                     </div>
@@ -312,60 +314,25 @@
                                         <h3 class="text-center mt-2">Do you have any dietary preferences or
                                             restrictions?</h3>
                                     </div>
-                                    <div class="col-md-6 ">
-                                        <label class="labl">
-                                            <input type="checkbox" name="dietary" value="Gluten-free" />
-                                            <div class="text-center">Gluten-free</div>
-                                        </label>
-                                    </div>
+                                    <?php $a=0;foreach($dietary as $dietarykey=>$dietaryval){ ?>
+                                    <?php if($a<=7){ ?>
                                     <div class="col-md-6">
                                         <label class="labl">
-                                            <input type="checkbox" name="dietary" value="Lactose-free" />
-                                            <div class="text-center">Lactose-free</div>
+                                            <input type="checkbox" name="dietary"
+                                                value="<?php echo $dietarykey; ?>" <?php if(in_array($dietarykey,$dietary_selected,true)){echo 'checked';} ?>/>
+                                            <div class="text-center"><?php echo $dietaryval; ?></div>
                                         </label>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="dietary" value="Soy-free" />
-                                            <div class="text-center">Soy-free</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="dietary" value="Whey-free" />
-                                            <div class="text-center">Whey-free</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="dietary" value="Vegan / plant-based" />
-                                            <div class="text-center">Vegan / plant-based</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="dietary" value="Paleo diet" />
-                                            <div class="text-center">Paleo diet</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="dietary" value="Ketogenic diet" />
-                                            <div class="text-center">Ketogenic diet</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="dietary" value="Caffeine-free" />
-                                            <div class="text-center">Caffeine-free</div>
-                                        </label>
-                                    </div>
+                                    <?php }  if($a==8){ ?>
                                     <div class="col-md-12">
                                         <label class="labl">
-                                            <input type="checkbox" name="dietary" value="None" />
-                                            <div class="text-center">None</div>
+                                            <input type="checkbox" name="dietary"
+                                                value="<?php echo $dietarykey; ?>" <?php if(in_array($dietarykey,$dietary_selected,true)){echo 'checked';} ?>/>
+                                            <div class="text-center"><?php echo $dietaryval; ?></div>
                                         </label>
                                     </div>
+                                    <?php }?>
+                                    <?php $a++;}?>
                                 </div>
                             </div> <!-- end form card -->
                             <input type="button" name="next" class="next action-button" value="Next" />
@@ -543,51 +510,25 @@
                                     <div class="col-md-12 mb-4">
                                         <h3 class="text-center mt-2">What are your nutrition goals?</h3>
                                     </div>
-                                    <div class="col-md-6 ">
-                                        <label class="labl">
-                                            <input type="checkbox" name="nutrition_goals" value="Build muscle" />
-                                            <div class="text-center">Build muscle</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="nutrition_goals" value="Gain weight" />
-                                            <div class="text-center">Gain weight</div>
-                                        </label>
-                                    </div>
+                                    <?php $a=0;foreach($nutrition_goals as $nutritionkey=>$nutritionval){ ?>
+                                    <?php if($a<=7){ ?>
                                     <div class="col-md-6">
                                         <label class="labl">
                                             <input type="checkbox" name="nutrition_goals"
-                                                value="Increase calorie intake" />
-                                            <div class="text-center">Increase calorie intake</div>
+                                                value="<?php echo $nutritionkey; ?>" <?php if(in_array($nutritionkey,$nutrition_selected,true)){echo 'checked';} ?>/>
+                                            <div class="text-center"><?php echo $nutritionval; ?></div>
                                         </label>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="nutrition_goals" value="Maintain muscle" />
-                                            <div class="text-center">Maintain muscle</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="nutrition_goals"
-                                                value="Recover after workouts" />
-                                            <div class="text-center">Recover after workouts</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="nutrition_goals"
-                                                value="Sports/fitness performance" />
-                                            <div class="text-center">Sports/fitness performance</div>
-                                        </label>
-                                    </div>
+                                    <?php }  if($a==8){ ?>
                                     <div class="col-md-12">
                                         <label class="labl">
-                                            <input type="checkbox" name="nutrition_goals" value="Supplement diet" />
-                                            <div class="text-center">Supplement diet</div>
+                                            <input type="checkbox" name="nutrition_goals"
+                                                value="<?php echo $nutritionkey; ?>" <?php if(in_array($nutritionkey,$nutrition_selected,true)){echo 'checked';} ?>/>
+                                            <div class="text-center"><?php echo $nutritionval; ?></div>
                                         </label>
                                     </div>
+                                    <?php }?>
+                                    <?php $a++;}?>
                                 </div>
                             </div> <!-- end form card -->
                             <input type="button" name="next" class="next action-button" value="Next" />
@@ -676,67 +617,15 @@
                                         <h3 class="text-center mt-2">What are your primary modes of exercise or
                                             training?</h3>
                                     </div>
-                                    <div class="col-md-6 ">
+                                    <?php foreach($primary_exercise as $primarykey=>$primaryval){ ?>
+                                    <div class="col-md-6">
                                         <label class="labl">
                                             <input type="checkbox" name="primary_exercise"
-                                                value="Resistance or weight training" />
-                                            <div class="text-center">Resistance or weight training</div>
+                                                value="<?php echo $primarykey; ?>" <?php if(in_array($primarykey,$primary_selected,true)){echo 'checked';} ?>/>
+                                            <div class="text-center"><?php echo $primaryval; ?></div>
                                         </label>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="primary_exercise" value="Running" />
-                                            <div class="text-center">Running</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="primary_exercise" value="Cycling" />
-                                            <div class="text-center">Cycling</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="primary_exercise" value="Yoga or pilates" />
-                                            <div class="text-center">Yoga or pilates</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="primary_exercise" value="Dance or aerobics" />
-                                            <div class="text-center">Dance or aerobics</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="primary_exercise" value="Swimming" />
-                                            <div class="text-center">Swimming</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="primary_exercise" value="Team sports" />
-                                            <div class="text-center">Team sports</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="primary_exercise" value="Individual sports" />
-                                            <div class="text-center">Individual sports</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="primary_exercise" value="Active lifestyle" />
-                                            <div class="text-center">Active lifestyle</div>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="labl">
-                                            <input type="checkbox" name="primary_exercise" value="Other" />
-                                            <div class="text-center">Other</div>
-                                        </label>
-                                    </div>
+                                    <?php }?>
                                 </div>
                             </div> <!-- end form card -->
                             <input type="button" name="next" class="next action-button" value="Next" />
