@@ -352,7 +352,7 @@ $.ajax({
     url: 'ajax.php',
     success:function(res){
         $('#error').text('');
-        console.log(res)
+        //console.log(res)
     }
 });
 
@@ -443,7 +443,7 @@ $.ajax({
     data:{'type':'field_update','fieldname':fieldName,'fieldvalue':fieldValue},
     url: 'ajax.php',
     success:function(res){
-        console.log(res)
+        //console.log(res)
     }
 });
 }

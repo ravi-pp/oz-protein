@@ -38,11 +38,11 @@
                             <div class="form-card col-md-12">
                                 <div class="col-md-8 mx-auto">
                                 <label class="fieldlabels">Email: *</label> 
-                                <input type="email" name="email" placeholder="Email" /> 
+                                <input type="email" name="email" placeholder="Email" required/> 
                                 </div>
                                 <div class="col-md-8 mx-auto">
                                 <label class="fieldlabels">Password: *</label> 
-                                <input type="password" name="password" placeholder="Password" /> 
+                                <input type="password" name="password" placeholder="Password" required/> 
                                 </div>
                             </div> 
                             <div class="col-md-12">
