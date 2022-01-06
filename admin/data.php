@@ -2,6 +2,10 @@
 include('../config.php');
 session_start();
 if(!isset($_SESSION['login_id'])){header('Location: ./');}
+include('../db.php');
+$sel_query = mysqli_query($connect,"SELECT * FROM `tbl_registers` ORDER BY id DESC");
+$num = mysqli_num_rows($sel_query);
+mysqli_close($connect);
 ?>
 <!doctype html>
 <html>
@@ -78,7 +82,7 @@ if(!isset($_SESSION['login_id'])){header('Location: ./');}
                 <th scope="col">Gender</th>
                 <th scope="col">Age</th>
                 <th scope="col">Product Interest</th>
-                <th scope="col">Weight</th>
+                <th scope="col">Weight-KG</th>
                 <th scope="col">Height-FT</th>
                 <th scope="col">Height-IN</th>
                 <th scope="col">Sleep</th>
@@ -89,7 +93,7 @@ if(!isset($_SESSION['login_id'])){header('Location: ./');}
                 <th scope="col">Servings Grain</th>
                 <th scope="col">Protien Powder</th>
                 <th scope="col">Nutrition Goals</th>
-                <th scope="col">Goal Weight</th>
+                <th scope="col">Goal Weight-KG</th>
                 <th scope="col">Exercise Time</th>
                 <th scope="col">Primary Exercise</th>
                 <th scope="col">Exercise Perweek</th>
@@ -102,36 +106,69 @@ if(!isset($_SESSION['login_id'])){header('Location: ./');}
                 </tr>
             </thead>
             <tbody>
+                <?php if($num>0){
+                    $i=1;
+                 while($result = $result = mysqli_fetch_assoc($sel_query)){ 
+                     //gender
+                      if($result['gender'] =='m'){
+                        $gender = 'Male';
+                      }else if($result['gender'] =='f'){
+                        $gender = 'Female';
+                      }else{
+                        $gender = 'Non-Binary';
+                      }
+                      //exercise_intensity
+                      if($result['exercise_intensity']<40 && $result['exercise_intensity']>=25){
+                          $exercise_intensity = 'Light';
+                      }else if($result['exercise_intensity']<35){
+                        $exercise_intensity = 'Very Light';
+                      }else if($result['exercise_intensity']>60 && $result['exercise_intensity'] <=80){
+                        $exercise_intensity = 'Intense';
+                      }else if($result['exercise_intensity']>80){
+                        $exercise_intensity = 'Very Intense';
+                      }else if($result['exercise_intensity']>35 && $result['exercise_intensity']<60){
+                        $exercise_intensity = 'Moderate';
+                      }
+                      //perspiration_level
+                      if($result['perspiration_level']<40){
+                        $perspiration_level = 'Low';
+                    }else if($result['perspiration_level']>65){
+                        $perspiration_level = 'High';
+                    }else if($result['perspiration_level']>40 && $result['perspiration_level']<65){
+                        $perspiration_level = 'Medium';
+                    }
+                ?>
                 <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th scope="row"><?php echo $i; ?></th>
+                <td><?php echo (empty($result['name'])) ? 'NA' : $result['name']; ?></td>
+                <td><?php echo (empty($result['email'])) ? 'NA' : $result['email']; ?></td>
+                <td><?php echo (empty($result['phone'])) ? 'NA' : $result['phone']; ?></td>
+                <td><?php echo $gender; ?></td>
+                <td><?php echo $result['age']; ?></td>
+                <td><?php echo $result['pro_interested']; ?></td>
+                <td><?php echo $result['weight']; ?></td>
+                <td><?php echo $result['height_ft']; ?></td>
+                <td><?php echo $result['height_in']; ?></td>
+                <td><?php echo $result['sleep']; ?></td>
+                <td><?php echo $result['eating_pattern']; ?></td>
+                <td><?php echo $result['dietary']; ?></td>
+                <td><?php echo $result['servings_fruit']; ?></td>
+                <td><?php echo $result['servings_vegi']; ?></td>
+                <td><?php echo $result['servings_grain']; ?></td>
+                <td><?php echo $result['protien_powder']; ?></td>
+                <td><?php echo $result['nutrition_goals']; ?></td>
+                <td><?php echo $result['goal_weight']; ?></td>
+                <td><?php echo $result['exercise_time']; ?></td>
+                <td><?php echo $result['primary_exercise']; ?></td>
+                <td><?php echo $result['exercise_perweek']; ?></td>
+                <td><?php echo $exercise_intensity; ?></td>
+                <td><?php echo $perspiration_level; ?></td>
+                <td><?php echo $result['hear_about']; ?></td>
+                <td><?php echo ($result['email_send']==0) ? 'Not Sent' : 'Sent'; ?></td>
+                <td><?php echo $result['updated_at']; ?></td>
+                <td><?php echo $result['created_at']; ?></td>
                 </tr>
+                <?php $i++; } } ?>
             </tbody>
             </table>
         </div>
