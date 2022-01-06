@@ -22,10 +22,11 @@ p {
     color: #000000;
     font-weight: normal
 }
-body{
+body.snippet-body{
     background: url(../img/bg2.jpg);
-    background-position: top;
+    background-position: center;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 #msform {
@@ -58,7 +59,7 @@ body{
     padding: 8px 15px 8px 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-bottom: 25px;
+    margin-bottom: 13px;
     margin-top: 2px;
     width: 100%;
     box-sizing: border-box;
@@ -80,7 +81,8 @@ body{
 
 #msform .action-button {
     width: 100px;
-    background: #1c1919;
+    /* background: #1c1919; */
+    background: #01ffda;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -225,7 +227,7 @@ body{
 }
 
 .progress-bar {
-    background-color: #000000
+    background-color: #3a3a3a;
 }
 
 .fit-image {
@@ -234,7 +236,11 @@ body{
 }
 /* ravi css */
 .logo_div {background: #d3d3d3;border-radius: 4px;}
+.logo_div_admin {background: #5eb19aba;border-radius: 4px;}
 .alert-secondary{font-size: 13px;text-align: center;}
+.exercise_intensity_light , .exercise_intensity_moderate , .exercise_intensity_intense{font-size: 14px;}
+.perspiration_level_light , .perspiration_level_moderate , .perspiration_level_intense{font-size: 14px;}
+fieldset select:focus{border-color: #060606 !important; box-shadow: 0 0 0 0.2rem rgb(34 34 34 / 25%) !important;}
 /**************************************Custom checkbox and radio**************************************************/
 .labl {
     display : block;
@@ -292,4 +298,9 @@ body{
     height: 25px;
     background: #04AA6D;
     cursor: pointer;
+  }
+  /****************************admin page*************************************/
+  #submit_login{
+      width: 100%;
+      background-color: #409c83;
   }
