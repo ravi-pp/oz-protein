@@ -66,6 +66,10 @@ setProgressBar(current);
 $(".next").click(function(){
 current_fs = $(this).parent();
 next_fs = $(this).parent().next();
+if(checkConnection()===false){
+    alert('Please check your network connection!');
+    return false;
+}
 //validation - gender
 if(current ==1){
 var gender  = $('input[name="gender"]').is(':checked');
@@ -345,7 +349,10 @@ if($.isNumeric(phno) ==false){
 }else{
     $('#error').text('');
 }
-
+if(checkConnection()===false){
+    alert('Please check your network connection!');
+    return false;
+}
 $.ajax({
     type:'POST',
     data:{'type':'submit','perspiration_level':perspirationVal,'exercise_intensity':exerciseVal,'fname':fullName,'email':email,'phno':phno},
@@ -438,6 +445,10 @@ if(curStep<=6){
 });
 //field update 
 function fieldUpdate(fieldName,fieldValue){
+    if(checkConnection()===false){
+        alert('Please check your network connection!');
+        return false;
+    }
 $.ajax({
     type:'POST',
     data:{'type':'field_update','fieldname':fieldName,'fieldvalue':fieldValue},
@@ -451,4 +462,8 @@ $.ajax({
 function isEmail(email) {
 var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 return regex.test(email);
+}
+//check network connection
+function checkConnection(){
+    return (navigator.onLine);
 }
